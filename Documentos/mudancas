@@ -6,3 +6,4 @@ Remover relação entra busca passagem e gerencia voo
 Remover a relação n para n entre voo e aeroporto (O voo terá 2 ligações de aeroportos)
 Reverter a relação entre compra e reserva
 Colocar preço no voo
+O cliente poderá escoler o assento, por um combobox e terá uma imagem pra ele saber a qual assento o codigo corresponde.
