@@ -1,0 +1,12 @@
+Nos requisitos nao funcionais definir quais dados no RNF07
+Os sistemas externos como atores
+Remover o CRUD
+Remover relação entra busca passagem e gerencia voo
+
+Remover a relação n para n entre voo e aeroporto (O voo terá 2 ligações de aeroportos)
+Reverter a relação entre compra e reserva
+Colocar preço no voo
+O cliente poderá escoler o assento, por um combobox e terá uma imagem pra ele saber a qual assento o codigo corresponde.
+
+Pegar tickets pela data, origem, destino e quantidade de passageiros.
+Pegar tickets pela origem e destino e quantidade de passageiro..
