@@ -2,70 +2,91 @@
 
 abstract class Voo{
 
-    private var $id;
+	private var $id;
 	private var $codigo;
 	private var $horarioPartida;
 	private var $horarioChegada;
 	private var $preco;
-	private var $email;
-	private var Array(
-	
-
-    function Voo($cpf, $nome, $dataNascimento,$telefone, $email){
-        $this->cpf = $cpf;
+	private var $aeroportoOrigem;
+	private var $aeroportoDestino;
+	private var $aviao;
+		
+	function Voo($codigo, $nome, $horarioPartida, $horarioChegada, $preco, $aeroportoOrigem, $aeroportoDestino, $aviao){
+        	$this->codigo = $codigo;
 		$this->nome = $nome;
-		$this->dataNascimento = $dataNascimento;
-        $this->telefone = $telefone;
-		$this->email = $email;
-    }
+		$this->horarioPartida = $horarioPartida;
+        	$this->horarioChegada = $horarioChegada;
+		$this->preco = $preco;
+		$this->aeroportoOrigem = $aeroportoOrigem;
+		$this->aeroportoDestino = $aeroportoDestino;
+        	$this->aviao = $aviao;
+   	 }
 
-	function getCpf(){
-        return $this->cpf;
-    }
+	function getCodigo(){
+        	return $this->codigo;
+    	}
 	
-	function setCpf($value){
-        $this->cpf = $value;
-    }
+	function setCodigo($value){
+        	$this->codigo = $value;
+    	}
 	
-    function getNome(){
-        return $this->nome;
-    }
+	function getHorarioPartida(){
+        	return $this->horarioPartida;
+    	}
 	
-	function setNome($value){
-        $this->nome = $value;
-    }
+	function setHorarioPartida($value){
+        	$this->horarioPartida = $value;
+    	}
 	
-	function getDataNascimento(){
-        return $this->dataNascimento;
-    }
+	function getHorarioChegada(){
+        	return $this->horarioChegada;
+    	}
 	
-	function setDataNascimento($value){
-        $this->dataNascimento = $value;
-    }
-
-    function getTelefone(){
-        return $this->telefone;
-    }
+	function setHorarioChegada($value){
+        	$this->horarioChegada = $value;
+    	}
 	
-	function setTelefone($value){
-        $this->telefone = $value;
-    }
+	function getPreco(){
+        	return $this->preco;
+    	}
 	
-	function getEmail(){
-        return $this->email;
-    }
+	function setPreco($value){
+        	$this->preco = $value;
+    	}
 	
-	function setEmail($value){
-        $this->email = $value;
-    }
+	function getAeroportoOrigem(){
+        	return $this->aeroportoOrigem;
+    	}
+	
+	function setAeroportoOrigem($value){
+        	$this->aeroportoOrigem = $value;
+    	}
+	
+	function getAeroportoDestino(){
+        	return $this->aroportoDestino;
+    	}
+	
+	function setAeroportoDestino($value){
+        	$this->aroportoDestino = $value;
+    	}
+	
+	function getAviao(){
+        	return $this->aviao;
+    	}
+	
+	function setAviao($value){
+        	$this->aviao = $value;
+    	}
 	
 	function getId(){
-        return $this->id;
-    }
+        	return $this->id;
+    	}
 	
 	function setId($value){
-        $this->id = $value;
-    }
+        	$this->id = $value;
+    	}
+	
+
 
 
 }
