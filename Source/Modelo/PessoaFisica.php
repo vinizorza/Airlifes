@@ -9,13 +9,13 @@ class PessoaFisica extends Cliente{
 	function Cliente($nome, $telefone, $email, $cpf){
 		parent::Cliente($nome, $telefone, $email);
 		$this->$cpf = $cpf;
-    	}
+    }
 
 	function getCpf(){
-        	return $this->cpf;
-    	}
+		return $this->cpf;
+	}
 	
 	function setCpf($value){
-        	$this->cpf = $value;
-    	}
+		$this->cpf = $value;
+	}
 }

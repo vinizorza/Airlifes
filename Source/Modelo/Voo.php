@@ -12,81 +12,78 @@ abstract class Voo{
 	private var $aviao;
 		
 	function Voo($codigo, $nome, $horarioPartida, $horarioChegada, $preco, $aeroportoOrigem, $aeroportoDestino, $aviao){
-        	$this->codigo = $codigo;
+		$this->codigo = $codigo;
 		$this->nome = $nome;
 		$this->horarioPartida = $horarioPartida;
-        	$this->horarioChegada = $horarioChegada;
+		$this->horarioChegada = $horarioChegada;
 		$this->preco = $preco;
 		$this->aeroportoOrigem = $aeroportoOrigem;
 		$this->aeroportoDestino = $aeroportoDestino;
-        	$this->aviao = $aviao;
+		$this->aviao = $aviao;
    	 }
 
 	function getCodigo(){
-        	return $this->codigo;
-    	}
+		return $this->codigo;
+	}
 	
 	function setCodigo($value){
-        	$this->codigo = $value;
-    	}
+		$this->codigo = $value;
+	}
 	
 	function getHorarioPartida(){
-        	return $this->horarioPartida;
-    	}
+		return $this->horarioPartida;
+	}
 	
 	function setHorarioPartida($value){
-        	$this->horarioPartida = $value;
-    	}
+		$this->horarioPartida = $value;
+	}
 	
 	function getHorarioChegada(){
-        	return $this->horarioChegada;
-    	}
+		return $this->horarioChegada;
+	}
 	
 	function setHorarioChegada($value){
-        	$this->horarioChegada = $value;
-    	}
+		$this->horarioChegada = $value;
+	}
 	
 	function getPreco(){
-        	return $this->preco;
-    	}
+		return $this->preco;
+	}
 	
 	function setPreco($value){
-        	$this->preco = $value;
-    	}
+		$this->preco = $value;
+	}
 	
 	function getAeroportoOrigem(){
-        	return $this->aeroportoOrigem;
-    	}
+		return $this->aeroportoOrigem;
+	}
 	
 	function setAeroportoOrigem($value){
-        	$this->aeroportoOrigem = $value;
-    	}
+		$this->aeroportoOrigem = $value;
+	}
 	
 	function getAeroportoDestino(){
-        	return $this->aroportoDestino;
-    	}
+		return $this->aroportoDestino;
+	}
 	
 	function setAeroportoDestino($value){
-        	$this->aroportoDestino = $value;
-    	}
+		$this->aroportoDestino = $value;
+	}
 	
 	function getAviao(){
-        	return $this->aviao;
-    	}
+		return $this->aviao;
+	}
 	
 	function setAviao($value){
-        	$this->aviao = $value;
-    	}
+		$this->aviao = $value;
+	}
 	
 	function getId(){
-        	return $this->id;
-    	}
+		return $this->id;
+	}
 	
 	function setId($value){
-        	$this->id = $value;
-    	}
+		$this->id = $value;
+	}
 	
-
-
-
 }
