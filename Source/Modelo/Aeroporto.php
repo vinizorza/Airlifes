@@ -2,69 +2,68 @@
 
 abstract class Aeroporto {
 
-    private var $id;
+	private var $id;
 	private var $nome;
 	private var $cidade;
 	private var $estado;
 	private var $pais;
 	private var $sigla;
 	
-
-    function Aeroporto($nome, $cidade, $estado, $pais, $sigla){
-        $this->nome = $nome;
-		$this->cidade = $fabricante;
+	function Aeroporto($nome, $cidade, $estado, $pais, $sigla){
+		$this->nome = $nome;
+		$this->cidade = $cidade;
 		$this->estado = $estado;
-        $this->pais = $pais;
+		$this->pais = $pais;
 		$this->sigla = $sigla;
-    }
+    	}
 
-    function getNome(){
-        return $this->nome;
-    }
+	function getNome(){
+        	return $this->nome;
+    	}
 	
 	function setNome($value){
-        $this->nome = $value;
-    }
+        	$this->nome = $value;
+    	}
 
-    function getCidade(){
-        return $this->cidade;
-    }
+	function getCidade(){
+        	return $this->cidade;
+    	}
 	
 	function setCidade($value){
-        $this->cidade = $value;
-    }
+       		$this->cidade = $value;
+    	}
 	
 	function getEstado(){
-        return $this->estado;
-    }
+        	return $this->estado;
+    	}
 	
 	function setEstado($value){
-        $this->estado = $value;
-    }
+        	$this->estado = $value;
+    	}
 	
 	function getPais(){
-        return $this->pais;
-    }
+        	return $this->pais;
+    	}
 	
 	function setPais($value){
-        $this->pais = $value;
-    }
+        	$this->pais = $value;
+    	}
 	
 	function getSigla(){
-        return $this->sigla;
-    }
+        	return $this->sigla;
+    	}
 	
 	function setSigla($value){
-        $this->sigla = $value;
-    }
+        	$this->sigla = $value;
+    	}
 	
 	function getId(){
-        return $this->id;
-    }
+        	return $this->id;
+    	}
 	
 	function setId($value){
-        $this->id = $value;
-    }
+        	$this->id = $value;
+   	}
 
 
 }
