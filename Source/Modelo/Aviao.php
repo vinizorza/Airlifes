@@ -1,6 +1,6 @@
 <?php
 
-abstract class Aviao{
+class Aviao{
 
     private $id;
     private $modelo;

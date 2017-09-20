@@ -1,6 +1,6 @@
 <?php
 
-abstract class Cliente {
+class Cliente {
 	
 	protected $nome;
 	protected $telefone;
