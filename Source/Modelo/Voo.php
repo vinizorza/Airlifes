@@ -2,14 +2,14 @@
 
 abstract class Voo{
 
-	private var $id;
-	private var $codigo;
-	private var $horarioPartida;
-	private var $horarioChegada;
-	private var $preco;
-	private var $aeroportoOrigem;
-	private var $aeroportoDestino;
-	private var $aviao;
+	private $id;
+	private $codigo;
+	private $horarioPartida;
+	private $horarioChegada;
+	private $preco;
+	private $aeroportoOrigem;
+	private $aeroportoDestino;
+	private $aviao;
 		
 	function Voo($codigo, $nome, $horarioPartida, $horarioChegada, $preco, $aeroportoOrigem, $aeroportoDestino, $aviao){
 		$this->codigo = $codigo;

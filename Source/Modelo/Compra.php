@@ -1,11 +1,11 @@
 <?php
 
 abstract class Compra{
-	private var $id;
-	private var $horario;
-	private var $numeroCartao;
-	private var $idHospedagem;
-	private var $tickets = array();
+	private $id;
+	private $horario;
+	private $numeroCartao;
+	private $idHospedagem;
+	private $tickets = array();
 		
 	function Compra($horario, $numeroCartao, $idHospedagem, $tickets){
 		$this->horario = $horario;

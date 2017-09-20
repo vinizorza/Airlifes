@@ -1,10 +1,10 @@
 <?php
 
-include_once 'Cliente.php'
+include_once 'Cliente.php';
 
 class PessoaFisica extends Cliente{
 
-	private var $cpf;	
+	private $cpf;
 
 	function Cliente($nome, $telefone, $email, $cpf){
 		parent::Cliente($nome, $telefone, $email);

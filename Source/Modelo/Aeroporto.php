@@ -2,12 +2,12 @@
 
 abstract class Aeroporto {
 
-	private var $id;
-	private var $nome;
-	private var $cidade;
-	private var $estado;
-	private var $pais;
-	private var $sigla;
+	private $id;
+	private $nome;
+	private $cidade;
+	private $estado;
+	private $pais;
+	private $sigla;
 	
 	function Aeroporto($nome, $cidade, $estado, $pais, $sigla){
 		$this->nome = $nome;

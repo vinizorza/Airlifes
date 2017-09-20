@@ -2,11 +2,11 @@
 
 class Ticket{
 
-    private var $id;
-    private var $codigoAssento;
-    private var $desconto;
-    private var $passageiro;
-    private var $voo;
+    private $id;
+    private $codigoAssento;
+    private $desconto;
+    private $passageiro;
+    private $voo;
     
     function Ticket($codigoAssento, $desconto, $passageiro, $voo){
         $this->codigoAssento = $codigoAssento;        

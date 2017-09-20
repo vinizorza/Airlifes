@@ -2,12 +2,12 @@
 
 abstract class Passageiro{
 
-    private var $id;
-	private var $cpf;
-	private var $nome;
-	private var $dataNascimento;
-	private var $telefone;
-	private var $email;
+    private $id;
+	private $cpf;
+	private $nome;
+	private $dataNascimento;
+	private $telefone;
+	private $email;
 	
 
     function Passageiro($cpf, $nome, $dataNascimento,$telefone, $email){

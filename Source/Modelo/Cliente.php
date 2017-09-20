@@ -2,10 +2,10 @@
 
 abstract class Cliente {
 	
-	protected var $nome;
-	protected var $telefone;
-	protected var $email;
-	protected var $id;
+	protected $nome;
+	protected $telefone;
+	protected $email;
+	protected $id;
 	
 	function Cliente($nome, $telefone, $email){
 		$this->nome = $nome;

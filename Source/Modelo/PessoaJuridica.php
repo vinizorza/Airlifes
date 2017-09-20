@@ -4,7 +4,7 @@ include_once 'Cliente.php';
 
 class PessoaJuridica extends Cliente{
 
-	private var $cnpj;	
+	private $cnpj;
 
 	function Cliente($nome, $telefone, $email, $cnpj){
 		parent::Cliente($nome, $telefone, $email);
