@@ -1,17 +1,12 @@
 <?php
 
-require_once('Dbconnection.php');
+require_once('../Tools/DbConnection.php');
 
 class AviaoDAO{
 
-    function _AviaoDAO(){
+    public static function listarTodosAvioes(){
 
-    }
-
-    function listarTodosAvioes(){
-
-        $con = new DbConnection();
-        $connection = $con->getdbconnect();
+        $connection = DbConnection::getdbconnect();
 
         $stmt = $connection->prepare('SELECT * FROM aviao');
         $stmt->execute();
@@ -20,19 +15,5 @@ class AviaoDAO{
     }
 
 
-
-//    $con = new DbConnection();
-//    $teste = con.
-    
-//    public static function carregarAvioes()	{
-//		$sql  = "SELECT * FROM aviao";
-//		$qry = mysqli_query($con, $sql);
-//		$avioes = [];
-//		while ($row = mysqli_fetch_array($qry)) {
-//			$avioes[] = $row;
-//		}
-//		return $avioes;
-//    }
-    
 
 }

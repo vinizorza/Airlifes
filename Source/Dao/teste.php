@@ -2,8 +2,7 @@
 
 require_once('AviaoDAO.php');
 
-    $ei = new AviaoDAO();
-    $oi = $ei->listarTodosAvioes();
+    $oi = AviaoDAO::listarTodosAvioes();
 
 while($row = $oi->fetch()) {
     print_r($row);

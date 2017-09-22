@@ -1,6 +1,6 @@
 <?php
 
-abstract class Compra{
+class Compra{
 	private $id;
 	private $horario;
 	private $numeroCartao;

@@ -1,6 +1,6 @@
 <?php
 
-abstract class Passageiro{
+class Passageiro{
 
     private $id;
 	private $cpf;

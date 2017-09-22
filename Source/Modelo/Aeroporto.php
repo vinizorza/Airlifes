@@ -1,6 +1,6 @@
 <?php
 
-abstract class Aeroporto {
+class Aeroporto {
 
 	private $id;
 	private $nome;

@@ -1,6 +1,6 @@
 <?php
 
-abstract class Voo{
+class Voo{
 
 	private $id;
 	private $codigo;

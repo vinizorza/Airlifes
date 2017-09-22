@@ -1,6 +1,6 @@
 <?php
 
-class Cliente {
+abstract class Cliente {
 	
 	protected $nome;
 	protected $telefone;
@@ -45,5 +45,17 @@ class Cliente {
 		$this->id = $value;
 	}
 
+    function buscarCompras(){
+
+    }
+
+    function realizarCompra($ticket, $passageiro){
+
+    }
+
+// Esta função ficará no controle, pois o cliente nao precisará estar logado para buscar
+//    function buscarVoos($origem, $destino, $dataIda, $dataVolta){
+//
+//    }
 
 }
