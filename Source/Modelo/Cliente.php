@@ -1,24 +1,33 @@
 <?php
 
-abstract class Cliente {
+class Cliente {
 	
 	protected $nome;
 	protected $telefone;
 	protected $email;
 	protected $id;
+        protected $cpf;
 	
-	function Cliente($nome, $telefone, $email){
+	function Cliente($nome, $telefone, $email, $cpf){
 		$this->nome = $nome;
 		$this->telefone = $telefone;
 		$this->email = $email;
+                $this->cpf = $cpf;
 	}
 
 	function getNome(){
 		return $this->nome;
 	}
-	
-	function setNome($value){
-		$this->nome = $value;
+	function getCpf() {
+            return $this->cpf;
+        }
+
+        function setCpf($value) {
+            $this->cpf = $value;
+        }
+
+        function setNome($value){
+	$this->nome = $value;
 	}
 
 	function getTelefone(){

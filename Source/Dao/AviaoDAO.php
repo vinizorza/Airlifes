@@ -1,6 +1,7 @@
 <?php
 
 require_once('../Tools/DbConnection.php');
+require_once('../Modelo/Aviao.php');
 
 class AviaoDAO{
 
@@ -10,10 +11,17 @@ class AviaoDAO{
 
         $stmt = $connection->prepare('SELECT * FROM aviao');
         $stmt->execute();
-
-        return $stmt;
+        
+        $avioes = array();
+        $index = 0;
+        
+        while ($row = $stmt->fetch()){
+            $avioes[$index] = new Aviao($row[MODELO], $row[CAPACIDADE], $row[FABRICANTE]);
+            $avioes[$index]->setId($row[idAVIAO]);
+            $index++;
+        }
+        
+        return $avioes;
     }
-
-
 
 }

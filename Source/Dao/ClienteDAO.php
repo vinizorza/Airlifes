@@ -1,10 +1,22 @@
 <?php
 require_once('../Tools/DbConnection.php');
+require_once('../Modelo/Cliente.php');
 
 class ClienteDAO{
 
-    public static function getClienteByEmail(){
-        //return cliente
+    public static function getClienteByEmail($email){
+        
+        $connection = DbConnection::getdbconnect();
+
+        $stmt = $connection->prepare('SELECT * FROM cliente WHERE EMAIL = ' . "'" .$email."'");
+        $stmt->execute();
+        
+        $row = $stmt->fetch();
+        
+        $cliente = new Cliente($row[NOME], $row[TELEFONE], $row[EMAIL], $row[CPF]);
+        $cliente->setId($row[idCLIENTE]);        
+        
+        return $cliente;
     }
 
     public static function getCompraByClienteEmail($emailCliente){

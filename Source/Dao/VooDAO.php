@@ -13,15 +13,17 @@ class VooDAO{
 
         $stmt = $connection->prepare('SELECT * FROM voo');
         $stmt->execute();
-
-        while($row = $stmt->fetch()) {
-            print_r($row);
+        
+        $avioes = array();
+        $index = 0;
+        
+        while ($row = $stmt->fetch()){
+            $voos[$index] = new Voo($row[MODELO], $row[CAPACIDADE], $row[FABRICANTE]);
+            $avioes[$index]->setId($row[idAVIAO]);
+            $index++;
         }
-
-
-        //return $stmt;
+        
+        return $avioes;
     }
-
-
 
 }
