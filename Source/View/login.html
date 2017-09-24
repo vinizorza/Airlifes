@@ -63,6 +63,30 @@
         <script src="js/respond.min.js"></script>
         <![endif]-->
 
+        <script language="Javascript">
+            function Enviar() {
+                $email = $("#email").val();
+                $senha = $("#senha").val();
+
+                $.post("../Controle/Login.php",
+                        {
+                            email: $email,
+                            senha: $senha
+                        },
+                        function (data, status) {
+                            alert("Data: " + data + "\nStatus: " + status);
+                        });
+
+
+                //$.post("painel.php", {id:id});
+
+                alert("Projeto excluido");
+
+                //window.location.replace("http://viniciuszorzanelli.com/relatorio_estrutura");
+            }
+        </script>
+
+
     </head>
     <body>
         <div id="fh5co-wrapper">
@@ -102,7 +126,7 @@
                             <div class="container">
                                 <div class="col-sm-3 col-md-3"></div>
                                 <div class="row">
-                                    
+
                                     <div class="col-sm-6 col-md-6" align="center">
                                         <div class="tabulation animate-box fadeInUp animated">
 
@@ -115,27 +139,27 @@
 
                                             <!-- Tab panes -->
                                             <div class="tab-content col-md-12">
-                                                    <div class="row">
-                                                        <div class="col-xxs-12 col-xs-12 mt">
-                                                            <div class="input-field">
-                                                                <label for="from">Email:</label>
-                                                                <input type="text" class="form-control" id="from-place" placeholder="">
-                                                            </div>
+                                                <div class="row">
+                                                    <div class="col-xxs-12 col-xs-12 mt">
+                                                        <div class="input-field">
+                                                            <label for="from">Email:</label>
+                                                            <input type="text" class="form-control" id="email" placeholder="">
                                                         </div>
-                                                        <div class="col-xxs-12 col-xs-12 mt">
-                                                            <div class="input-field">
-                                                                <label for="from">Senha:</label>
-                                                                <input type="text" class="form-control" id="to-place" placeholder="">
-                                                            </div>
+                                                    </div>
+                                                    <div class="col-xxs-12 col-xs-12 mt">
+                                                        <div class="input-field">
+                                                            <label for="from">Senha:</label>
+                                                            <input type="text" class="form-control" id="senha" placeholder="">
                                                         </div>
+                                                    </div>
 
 
-                                                        <div class="col-xs-12">
-                                                            <input type="submit" class="btn btn-primary btn-block" value="Login">
-                                                        </div>
-                                                        <a href="#flights" aria-controls="flights" role="tab" data-toggle="tab">Esqueci a senha</a>
+                                                    <div class="col-xs-12">
+                                                        <input type="submit" class="btn btn-primary btn-block" value="Login" onclick="Enviar();">
+                                                    </div>
+                                                    <a href="#flights" aria-controls="flights" role="tab" data-toggle="tab">Esqueci a senha</a>
 
-                                                    </div>                                 
+                                                </div>                                 
                                             </div>
                                         </div>
                                     </div>                                    
