@@ -11,9 +11,8 @@ class Voo{
 	private $aeroportoDestino;
 	private $aviao;
 		
-	function Voo($codigo, $nome, $horarioPartida, $horarioChegada, $preco, $aeroportoOrigem, $aeroportoDestino, $aviao){
+	function Voo($codigo, $horarioPartida, $horarioChegada, $preco, $aeroportoOrigem, $aeroportoDestino, $aviao){
 		$this->codigo = $codigo;
-		$this->nome = $nome;
 		$this->horarioPartida = $horarioPartida;
 		$this->horarioChegada = $horarioChegada;
 		$this->preco = $preco;

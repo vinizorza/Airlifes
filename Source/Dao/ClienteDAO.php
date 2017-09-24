@@ -18,15 +18,19 @@ class ClienteDAO{
         
         return $cliente;
     }
+    
+    public static function insereCliente($cliente){
+        
+        $connection = DbConnection::getdbconnect();
+        
+        $str = 'INSERT INTO cliente (NOME, CPF, TELEFONE, EMAIL) VALUES ('."'".$cliente->getNome() . "','"
+                                                                          . $cliente->getCpf(). "','"
+                                                                          . $cliente->getTelefone() . "','"
+                                                                          . $cliente->getEmail(). "')";
+        
+//        echo $str;
+        $stmt = $connection->prepare($str);
+        $stmt->execute();
 
-    public static function getCompraByClienteEmail($emailCliente){
-        //return lista de compras
     }
-
-    public static function delCliente($id){
-
-    }
-
-
-
 }

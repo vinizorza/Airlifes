@@ -23,5 +23,22 @@ class AviaoDAO{
         
         return $avioes;
     }
+    
+    public static function pegarAviaoPeloId($id){
+
+        $connection = DbConnection::getdbconnect();
+
+        $stmt = $connection->prepare('SELECT * FROM aviao WHERE idAVIAO = ' . "'" .$id."'");
+        $stmt->execute();
+        
+        $row = $stmt->fetch();
+        
+        $aviao = new Aviao($row[MODELO], $row[CAPACIDADE], $row[FABRICANTE]);
+        $aviao->setId($row[idAVIAO]); 
+        
+        return $aviao;
+    }
+    
+    
 
 }
