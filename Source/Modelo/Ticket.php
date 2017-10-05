@@ -3,13 +3,11 @@
 class Ticket{
 
     private $id;
-    private $codigoAssento;
     private $desconto;
     private $passageiro;
     private $voo;
     
-    function Ticket($codigoAssento, $desconto, $passageiro, $voo){
-        $this->codigoAssento = $codigoAssento;        
+    function Ticket($codigoAssento, $desconto, $passageiro, $voo){    
         $this->desconto = $desconto;
         $this->passageiro = $passageiro;
         $this->voo = $voo;
