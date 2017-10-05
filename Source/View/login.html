@@ -67,7 +67,9 @@
             function Enviar() {
                 $email = $("#email").val();
                 $senha = $("#senha").val();
-
+                
+                alert($email);
+           
                 $.post("../Controle/Login.php",
                         {
                             email: $email,
@@ -79,8 +81,6 @@
 
 
                 //$.post("painel.php", {id:id});
-
-                alert("Projeto excluido");
 
                 //window.location.replace("http://viniciuszorzanelli.com/relatorio_estrutura");
             }
