@@ -6,7 +6,9 @@ require_once('../Dao/ClienteDAO.php');
 require_once('../Dao/VooDAO.php');
 
 //$oi = ClienteDAO::getClienteByEmail("vinizorza@hotmail.com");
-$oi = VooDAO::pegarVoos("2017-09-19", "Congonhas","Los Angeles");
+//$oi = VooDAO::pegarVoos("2017-09-19", "Congonhas","Los Angeles");
+
+$oi = VooDAO::pegarTodosVoos();
 
 //$oi = AeroportoDAO::pegarAeroportoPeloId(1);
 

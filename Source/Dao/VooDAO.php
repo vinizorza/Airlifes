@@ -14,7 +14,7 @@ class VooDAO{
         $stmt = $connection->prepare('SELECT * FROM voo');
         $stmt->execute();
         
-        $avioes = array();
+        $voos = array();
         $index = 0;
                         
         while ($row = $stmt->fetch()){
@@ -29,7 +29,7 @@ class VooDAO{
             $voos[$index]->setId($row[idVOO]);
             $index++;
         }
-        
+        //return $stmt;
         return $voos;
     }
     
@@ -74,5 +74,10 @@ class VooDAO{
         
         return $voos;
     }
+    
+
+    
+    
+    
 
 }
