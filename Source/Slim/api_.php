@@ -12,20 +12,6 @@ require 'vendor/autoload.php';
 
 
 $app = new \Slim\App;
-
-$app->options('/{routes:.+}', function ($request, $response, $args) {
-    return $response;
-});
-
-$app->add(function ($req, $res, $next) {
-    $response = $next($req, $res);
-    return $response
-            ->withHeader('Access-Control-Allow-Origin', '*')
-            ->withHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Accept, Origin, Authorization')
-            ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-});
-
-
 $app->get('/getVoos/{data}/{origem}/{destino}', function (Request $request, Response $response) {
 
     require_once('../Dao/AeroportoDAO.php');
@@ -69,9 +55,8 @@ $app->get('/getVoos/{data}/{origem}/{destino}', function (Request $request, Resp
                 );
         $i++;
     }    
-	$response->getBody()->write(json_encode($list));
 
-    return $response;
+    return json_encode($list);
 
 });
 
@@ -90,31 +75,30 @@ $app->get('/getTodosVoos', function (Request $request, Response $response) {
     $i = 0;
     foreach ($voos as $voo) {
         $list[$i] = array(
-                            'idVoo' => $voo->getId(), 
-                            'codigo' => $voo->getCodigo(),
-                            'partida' => $voo->getHorarioPartida(),
-                            'chegada' => $voo->getHorarioChegada(),
-                            'preco' => $voo->getPreco(),
-                            'aeroporto_partida' => $voo->getAeroportoOrigem()->getNome(),
-                            'cidade_partida' => $voo->getAeroportoOrigem()->getCidade(),
-                            'estado_partida' => $voo->getAeroportoOrigem()->getEstado(),
-                            'pais_partida' => $voo->getAeroportoOrigem()->getPais(),
-                            'sigla_aeroporto_partida' =>$voo->getAeroportoOrigem()->getSigla(),
-                            'aeroporto_destino' => $voo->getAeroportoDestino()->getNome(),
-                            'cidade_destino' => $voo->getAeroportoDestino()->getCidade(),
-                            'estado_destino' => $voo->getAeroportoDestino()->getEstado(),
-                            'pais_destino' => $voo->getAeroportoDestino()->getPais(),
-                            'sigla_aeroporto_destino' =>$voo->getAeroportoDestino()->getSigla(),
-                            'modelo_aviao' => $voo->getAviao()->getModelo(),
-                            'capacidade_aviao' => $voo->getAviao()->getCapacidade(),
-                            'fabricante_aviao' => $voo->getAviao()->getFabricante()
+                'idVoo' => $voo->getId(), 
+                'codigo' => $voo->getCodigo(),
+                'partida' => $voo->getHorarioPartida(),
+                'chegada' => $voo->getHorarioChegada(),
+                'preco' => $voo->getPreco(),
+                'aeroporto_partida' => $voo->getAeroportoOrigem()->getNome(),
+                'cidade_partida' => $voo->getAeroportoOrigem()->getCidade(),
+                'estado_partida' => $voo->getAeroportoOrigem()->getEstado(),
+                'pais_partida' => $voo->getAeroportoOrigem()->getPais(),
+                'sigla_aeroporto_partida' =>$voo->getAeroportoOrigem()->getSigla(),
+                'aeroporto_destino' => $voo->getAeroportoDestino()->getNome(),
+                'cidade_destino' => $voo->getAeroportoDestino()->getCidade(),
+                'estado_destino' => $voo->getAeroportoDestino()->getEstado(),
+                'pais_destino' => $voo->getAeroportoDestino()->getPais(),
+                'sigla_aeroporto_destino' =>$voo->getAeroportoDestino()->getSigla(),
+                'modelo_aviao' => $voo->getAviao()->getModelo(),
+                'capacidade_aviao' => $voo->getAviao()->getCapacidade(),
+                'fabricante_aviao' => $voo->getAviao()->getFabricante()
                 );
         $i++;
     }    
-	
-	$response->getBody()->write(json_encode($list));
 
-    return $response;
+    return json_encode($list);
+
 });
 
 $app->get('/inserirTicket/{cpf}/{nome}/{dataNascimento}/{email}/{telefone}/{idCompra}/{idVoo}/{numeroAssento}/', function (Request $request, Response $response) {
@@ -129,9 +113,43 @@ $app->get('/inserirTicket/{cpf}/{nome}/{dataNascimento}/{email}/{telefone}/{idCo
 
 
 
-$app->get('/teste', function (Request $request, Response $response) {
+$app->get('/getVooById/{id}', function (Request $request, Response $response) {
+    
+    require_once('../Dao/AeroportoDAO.php');
+    require_once('../Dao/AviaoDAO.php');
+    require_once('../Dao/ClienteDAO.php');
+    require_once('../Dao/VooDAO.php');
+    
+    $id = $request->getAttribute('id');
+    
+    $voos = VooDAO::pegarVooPorId($id);   
+   
+    $i = 0;
+    foreach ($voos as $voo) {
+        $list[$i] = array(
+            'idVoo' => $voo->getId(), 
+            'codigo' => $voo->getCodigo(),
+            'partida' => $voo->getHorarioPartida(),
+            'chegada' => $voo->getHorarioChegada(),
+            'preco' => $voo->getPreco(),
+            'aeroporto_partida' => $voo->getAeroportoOrigem()->getNome(),
+            'cidade_partida' => $voo->getAeroportoOrigem()->getCidade(),
+            'estado_partida' => $voo->getAeroportoOrigem()->getEstado(),
+            'pais_partida' => $voo->getAeroportoOrigem()->getPais(),
+            'sigla_aeroporto_partida' =>$voo->getAeroportoOrigem()->getSigla(),
+            'aeroporto_destino' => $voo->getAeroportoDestino()->getNome(),
+            'cidade_destino' => $voo->getAeroportoDestino()->getCidade(),
+            'estado_destino' => $voo->getAeroportoDestino()->getEstado(),
+            'pais_destino' => $voo->getAeroportoDestino()->getPais(),
+            'sigla_aeroporto_destino' =>$voo->getAeroportoDestino()->getSigla(),
+            'modelo_aviao' => $voo->getAviao()->getModelo(),
+            'capacidade_aviao' => $voo->getAviao()->getCapacidade(),
+            'fabricante_aviao' => $voo->getAviao()->getFabricante()
+            );
+        $i++;
+    }    
 
-    echo "tetete";
+    return json_encode($list);
 });
 
 $app->run();
