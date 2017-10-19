@@ -40,19 +40,19 @@ function renderizarVoos(){
                                         "<span class='card-title'>"+voos[i].codigo+"</span>" +
                                         "<div class='input-field col s6'>"+
                                             "<input disabled placeholder='"+voos[i].fabricante_aviao+" "+voos[i].modelo_aviao+"' id='first_name' type='text' class='validate'>"+
-                                            "<label for='first_name'>Aeronave</label>"+
+                                            "<label for='first_name' style='position: absolute; top: -30px;'>Aeronave</label>"+
                                         "</div>"+
                                         "<div class='input-field col s6'>"+
                                             "<input disabled placeholder='R$ 299' id='first_name' type='text' class='validate'>"+
-                                            "<label for='first_name'>Preço</label>"+
+                                            "<label for='first_name' style='position: absolute; top: -30px;'>Preço</label>"+
                                         "</div>"+
                                         "<div class='input-field col s6'>"+
                                             "<input disabled placeholder='17/05/2017 16:00' id='first_name' type='text' class='validate'>"+
-                                            "<label for='first_name'>Horário Partida</label>"+
+                                            "<label for='first_name' style='position: absolute; top: -30px;'>Horário Partida</label>"+
                                         "</div>"+
                                         "<div class='input-field col s6'>"+
                                             "<input disabled placeholder='17/05/2017 21:00' id='first_name' type='text' class='validate'>"+
-                                            "<label for='first_name'>Horário Chegada</label>"+
+                                            "<label for='first_name' style='position: absolute; top: -30px;'>Horário Chegada</label>"+
                                         "</div>"+
                                         "<div class='blue-text text-darken-2'>"+
                                             "<a class='waves-effect waves-light btn' id='"+voos[i].idVoo+"' onclick='goToFinalizar(this.id);'><i class='material-icons right'>shopping_cart</i>Comprar</a>"+
