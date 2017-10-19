@@ -1,630 +1,154 @@
-
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Travel &mdash; 100% Free Fully Responsive HTML5 Template by FREEHTML5.co</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
-        <meta name="keywords" content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
-        <meta name="author" content="FREEHTML5.CO" />
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 
-        <!-- 
-              //////////////////////////////////////////////////////
-      
-              FREE HTML5 TEMPLATE 
-              DESIGNED & DEVELOPED by FREEHTML5.CO
-                      
-              Website: 		http://freehtml5.co/
-              Email: 			info@freehtml5.co
-              Twitter: 		http://twitter.com/fh5co
-              Facebook: 		https://www.facebook.com/fh5co
-      
-              //////////////////////////////////////////////////////
-        -->
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
-        <!-- Facebook and Twitter integration -->
-        <meta property="og:title" content=""/>
-        <meta property="og:image" content=""/>
-        <meta property="og:url" content=""/>
-        <meta property="og:site_name" content=""/>
-        <meta property="og:description" content=""/>
-        <meta name="twitter:title" content="" />
-        <meta name="twitter:image" content="" />
-        <meta name="twitter:url" content="" />
-        <meta name="twitter:card" content="" />
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 
-        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-        <link rel="shortcut icon" href="favicon.ico">
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
+    <!--Import JS functions.js-->
+    <script type="text/javascript" src="./js/index.js"></script>
 
-        <!-- Animate.css -->
-        <link rel="stylesheet" href="css/animate.css">
-        <!-- Icomoon Icon Fonts-->
-        <link rel="stylesheet" href="css/icomoon.css">
-        <!-- Bootstrap  -->
-        <link rel="stylesheet" href="css/bootstrap.css">
-        <!-- Superfish -->
-        <link rel="stylesheet" href="css/superfish.css">
-        <!-- Magnific Popup -->
-        <link rel="stylesheet" href="css/magnific-popup.css">
-        <!-- Date Picker -->
-        <link rel="stylesheet" href="css/bootstrap-datepicker.min.css">
-        <!-- CS Select -->
-        <link rel="stylesheet" href="css/cs-select.css">
-        <link rel="stylesheet" href="css/cs-skin-border.css">
+    <style>
+        ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+            color: black;
+            /* font-weight: 5px; */
+            
+        }        
+    </style>
 
-        <link rel="stylesheet" href="css/style.css">
+  </head>
 
+  <body>
 
-        <!-- Modernizr JS -->
-        <script src="js/modernizr-2.6.2.min.js"></script>
-        <!-- FOR IE9 below -->
-        <!--[if lt IE 9]>
-        <script src="js/respond.min.js"></script>
-        <![endif]-->
+    <script>
+        $(document).ready(function() {
+            $('.datepicker').pickadate({
+                selectMonths: true, // Creates a dropdown to control month
+                selectYears: 15, // Creates a dropdown of 15 years to control year,
+                today: 'Hoje',
+                clear: 'Limpar',
+                close: 'Ok',
+                closeOnSelect: false, // Close upon selecting a date,
+                format: 'dd/mm/yyyy' 
+            });
 
-    </head>
-    <body>
-        <div id="fh5co-wrapper">
-            <div id="fh5co-page">
+            var date = $('.datepicker').datepicker({ dateFormat: 'dd-mm-yy' }).val();
+            console.log(date);
+        });
+        
+    </script>
 
-                <header id="fh5co-header-section" class="sticky-banner">
-                    <div class="container">
-                        <div class="nav-header">
-                            <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle dark"><i></i></a>
-                            <h1 id="fh5co-logo"><a href="index.html"><i class="icon-airplane"></i>Airlifes</a></h1>
-                            <!-- START #fh5co-menu-wrap -->
-                            <nav id="fh5co-menu-wrap" role="navigation">
-                                <ul class="sf-menu" id="fh5co-primary-menu">
-                                    <li><a href="index.html">Passagens</a></li>
-                                    <li><a href="vacation.html" class="fh5co-sub-ddown">Quem somos</a></li>
-                                    <li><a href="flight.html">Contato</a></li>
-                                </ul>
-                            </nav>						
-                        </div>
-                    </div>
-                </header>
-
-                <!-- end:header-top -->
-
-                <div class="fh5co-hero">
-                    <div class="fh5co-overlay"></div>
-                    <div class="fh5co-cover" data-stellar-background-ratio="0.5" style="background-image: url(images/vix.jpg);">
-                        <div class="desc">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-sm-5 col-md-5">
-                                        <div class="tabulation animate-box">
-
-                                            <!-- Nav tabs -->
-                                            <ul class="nav nav-tabs" role="tablist">
-                                                <li role="presentation" class="active">
-                                                    <a href="#flights" aria-controls="flights" role="tab" data-toggle="tab">Voos</a>
-                                                </li>
-                                            </ul>
-
-                                            <!-- Tab panes -->
-                                            <div class="tab-content">
-                                                <div role="tabpanel" class="tab-pane active" id="flights">
-                                                    <form action="voo.php" method="get">
-                                                    <div class="row">
-                                                        <div class="col-xxs-12 col-xs-6 mt">
-                                                            <div class="input-field">
-                                                                <label for="from">De:</label>
-                                                                <input name="origem" type="text" class="form-control" id="from-place" placeholder="Vitória, ES"/>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-xxs-12 col-xs-6 mt">
-                                                            <div class="input-field">
-                                                                <label for="from">Para:</label>
-                                                                <input name="destino" type="text" class="form-control" id="to-place" placeholder="São Paulo, SP"/>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-xxs-12 col-xs-6 mt alternate">
-                                                            <div class="input-field">
-                                                                <label for="date-start">Ida :</label>
-                                                                <input name="data" type="text" class="form-control" id="to-place" placeholder="21/12/2017"/>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-xxs-12 col-xs-6 mt alternate">
-                                                            <div class="input-field">
-                                                                <label for="date-end">Volta :</label>
-                                                                <input type="text" class="form-control" id="date-end" placeholder="28/12/2017"/>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-xxs-12 col-xs-6 mt">
-                                                            <section>
-                                                                <label for="class">Quantidade:</label>
-                                                                <select class="cs-select cs-skin-border">
-                                                                    <option value="" disabled selected>1</option>
-                                                                    <option value="1">1</option>
-                                                                    <option value="2">2</option>
-                                                                    <option value="3">3</option>
-                                                                    <option value="4">4</option>
-                                                                </select>
-                                                            </section>
-                                                        </div>
-                                                        <div class="col-xxs-12 col-xs-6 mt">
-                                                            <section>
-                                                                <label for="class"></label>
-                                                                <select class="cs-select cs-skin-border">
-                                                                    <option value="" disabled selected>Somente ida</option>
-                                                                    <option value="1">Somente ida</option>
-                                                                    <option value="2">Ida e volta</option>
-                                                                </select>
-                                                            </section>
-                                                        </div>
-                                                        <div class="col-xs-12">
-                                                            <input type="submit" class="btn btn-primary btn-block" value="Procurar Voo">
-                                                        </div>
-                                                    </div>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="desc2 animate-box">
-                                        <div class="col-sm-7 col-sm-push-1 col-md-7 col-md-push-1">
-                                            <h2>Ofertas por tempo limitado</h2>
-                                            <h3>Voo de Vitória-ES</h3>
-                                            <span class="price">R$ 259</span>
-                                            <!-- <p><a class="btn btn-primary btn-lg" href="#">Get Started</a></p> -->
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div id="fh5co-tours" class="fh5co-section-gray">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-8 col-md-offset-2 text-center heading-section animate-box">
-                                <h3>Hot Tours</h3>
-                                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-4 col-sm-6 fh5co-tours animate-box" data-animate-effect="fadeIn">
-                                <div href="#"><img src="images/place-1.jpg" alt="Free HTML5 Website Template by FreeHTML5.co" class="img-responsive">
-                                    <div class="desc">
-                                        <span></span>
-                                        <h3>New York</h3>
-                                        <span>3 nights + Flight 5*Hotel</span>
-                                        <span class="price">$1,000</span>
-                                        <a class="btn btn-primary btn-outline" href="#">Book Now <i class="icon-arrow-right22"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 col-sm-6 fh5co-tours animate-box" data-animate-effect="fadeIn">
-                                <div href="#"><img src="images/place-2.jpg" alt="Free HTML5 Website Template by FreeHTML5.co" class="img-responsive">
-                                    <div class="desc">
-                                        <span></span>
-                                        <h3>Philippines</h3>
-                                        <span>4 nights + Flight 5*Hotel</span>
-                                        <span class="price">$1,000</span>
-                                        <a class="btn btn-primary btn-outline" href="#">Book Now <i class="icon-arrow-right22"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 col-sm-6 fh5co-tours animate-box" data-animate-effect="fadeIn">
-                                <div href="#"><img src="images/place-3.jpg" alt="Free HTML5 Website Template by FreeHTML5.co" class="img-responsive">
-                                    <div class="desc">
-                                        <span></span>
-                                        <h3>Hongkong</h3>
-                                        <span>2 nights + Flight 4*Hotel</span>
-                                        <span class="price">$1,000</span>
-                                        <a class="btn btn-primary btn-outline" href="#">Book Now <i class="icon-arrow-right22"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-12 text-center animate-box">
-                                <p><a class="btn btn-primary btn-outline btn-lg" href="#">See All Offers <i class="icon-arrow-right22"></i></a></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="fh5co-features">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-4 animate-box">
-
-                                <div class="feature-left">
-                                    <span class="icon">
-                                        <i class="icon-hotairballoon"></i>
-                                    </span>
-                                    <div class="feature-copy">
-                                        <h3>Family Travel</h3>
-                                        <p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit.</p>
-                                        <p><a href="#">Learn More</a></p>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                            <div class="col-md-4 animate-box">
-                                <div class="feature-left">
-                                    <span class="icon">
-                                        <i class="icon-search"></i>
-                                    </span>
-                                    <div class="feature-copy">
-                                        <h3>Travel Plans</h3>
-                                        <p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit.</p>
-                                        <p><a href="#">Learn More</a></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 animate-box">
-                                <div class="feature-left">
-                                    <span class="icon">
-                                        <i class="icon-wallet"></i>
-                                    </span>
-                                    <div class="feature-copy">
-                                        <h3>Honeymoon</h3>
-                                        <p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit.</p>
-                                        <p><a href="#">Learn More</a></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-4 animate-box">
-
-                                <div class="feature-left">
-                                    <span class="icon">
-                                        <i class="icon-wine"></i>
-                                    </span>
-                                    <div class="feature-copy">
-                                        <h3>Business Travel</h3>
-                                        <p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit.</p>
-                                        <p><a href="#">Learn More</a></p>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                            <div class="col-md-4 animate-box">
-                                <div class="feature-left">
-                                    <span class="icon">
-                                        <i class="icon-genius"></i>
-                                    </span>
-                                    <div class="feature-copy">
-                                        <h3>Solo Travel</h3>
-                                        <p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit.</p>
-                                        <p><a href="#">Learn More</a></p>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div class="col-md-4 animate-box">
-                                <div class="feature-left">
-                                    <span class="icon">
-                                        <i class="icon-chat"></i>
-                                    </span>
-                                    <div class="feature-copy">
-                                        <h3>Explorer</h3>
-                                        <p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit.</p>
-                                        <p><a href="#">Learn More</a></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div id="fh5co-destination">
-                    <div class="tour-fluid">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <ul id="fh5co-destination-list" class="animate-box">
-                                    <li class="one-forth text-center" style="background-image: url(images/place-1.jpg); ">
-                                        <a href="#">
-                                            <div class="case-studies-summary">
-                                                <h2>Los Angeles</h2>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li class="one-forth text-center" style="background-image: url(images/place-2.jpg); ">
-                                        <a href="#">
-                                            <div class="case-studies-summary">
-                                                <h2>Hongkong</h2>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li class="one-forth text-center" style="background-image: url(images/place-3.jpg); ">
-                                        <a href="#">
-                                            <div class="case-studies-summary">
-                                                <h2>Italy</h2>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li class="one-forth text-center" style="background-image: url(images/place-4.jpg); ">
-                                        <a href="#">
-                                            <div class="case-studies-summary">
-                                                <h2>Philippines</h2>
-                                            </div>
-                                        </a>
-                                    </li>
-
-                                    <li class="one-forth text-center" style="background-image: url(images/place-5.jpg); ">
-                                        <a href="#">
-                                            <div class="case-studies-summary">
-                                                <h2>Japan</h2>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li class="one-half text-center">
-                                        <div class="title-bg">
-                                            <div class="case-studies-summary">
-                                                <h2>Most Popular Destinations</h2>
-                                                <span><a href="#">View All Destinations</a></span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="one-forth text-center" style="background-image: url(images/place-6.jpg); ">
-                                        <a href="#">
-                                            <div class="case-studies-summary">
-                                                <h2>Paris</h2>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li class="one-forth text-center" style="background-image: url(images/place-7.jpg); ">
-                                        <a href="#">
-                                            <div class="case-studies-summary">
-                                                <h2>Singapore</h2>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li class="one-forth text-center" style="background-image: url(images/place-8.jpg); ">
-                                        <a href="#">
-                                            <div class="case-studies-summary">
-                                                <h2>Madagascar</h2>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li class="one-forth text-center" style="background-image: url(images/place-9.jpg); ">
-                                        <a href="#">
-                                            <div class="case-studies-summary">
-                                                <h2>Egypt</h2>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li class="one-forth text-center" style="background-image: url(images/place-10.jpg); ">
-                                        <a href="#">
-                                            <div class="case-studies-summary">
-                                                <h2>Indonesia</h2>
-                                            </div>
-                                        </a>
-                                    </li>
-                                </ul>		
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="fh5co-blog-section" class="fh5co-section-gray">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-8 col-md-offset-2 text-center heading-section animate-box">
-                                <h3>Recent From Blog</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit est facilis maiores, perspiciatis accusamus asperiores sint consequuntur debitis.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="container">
-                        <div class="row row-bottom-padded-md">
-                            <div class="col-lg-4 col-md-4 col-sm-6">
-                                <div class="fh5co-blog animate-box">
-                                    <a href="#"><img class="img-responsive" src="images/place-1.jpg" alt=""></a>
-                                    <div class="blog-text">
-                                        <div class="prod-title">
-                                            <h3><a href="#">30% Discount to Travel All Around the World</a></h3>
-                                            <span class="posted_by">Sep. 15th</span>
-                                            <span class="comment"><a href="">21<i class="icon-bubble2"></i></a></span>
-                                            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                                            <p><a href="#">Learn More...</a></p>
-                                        </div>
-                                    </div> 
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-4 col-sm-6">
-                                <div class="fh5co-blog animate-box">
-                                    <a href="#"><img class="img-responsive" src="images/place-2.jpg" alt=""></a>
-                                    <div class="blog-text">
-                                        <div class="prod-title">
-                                            <h3><a href="#">Planning for Vacation</a></h3>
-                                            <span class="posted_by">Sep. 15th</span>
-                                            <span class="comment"><a href="">21<i class="icon-bubble2"></i></a></span>
-                                            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                                            <p><a href="#">Learn More...</a></p>
-                                        </div>
-                                    </div> 
-                                </div>
-                            </div>
-                            <div class="clearfix visible-sm-block"></div>
-                            <div class="col-lg-4 col-md-4 col-sm-6">
-                                <div class="fh5co-blog animate-box">
-                                    <a href="#"><img class="img-responsive" src="images/place-3.jpg" alt=""></a>
-                                    <div class="blog-text">
-                                        <div class="prod-title">
-                                            <h3><a href="#">Visit Tokyo Japan</a></h3>
-                                            <span class="posted_by">Sep. 15th</span>
-                                            <span class="comment"><a href="">21<i class="icon-bubble2"></i></a></span>
-                                            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                                            <p><a href="#">Learn More...</a></p>
-                                        </div>
-                                    </div> 
-                                </div>
-                            </div>
-                            <div class="clearfix visible-md-block"></div>
-                        </div>
-
-                        <div class="col-md-12 text-center animate-box">
-                            <p><a class="btn btn-primary btn-outline btn-lg" href="#">See All Post <i class="icon-arrow-right22"></i></a></p>
-                        </div>
-
-                    </div>
-                </div>
-                <!-- fh5co-blog-section -->
-                <div id="fh5co-testimonial" style="background-image:url(images/img_bg_1.jpg);">
-                    <div class="container">
-                        <div class="row animate-box">
-                            <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-                                <h2>Happy Clients</h2>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="box-testimony animate-box">
-                                    <blockquote>
-                                        <span class="quote"><span><i class="icon-quotes-right"></i></span></span>
-                                        <p>&ldquo;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.&rdquo;</p>
-                                    </blockquote>
-                                    <p class="author">John Doe, CEO <a href="http://freehtml5.co/" target="_blank">FREEHTML5.co</a> <span class="subtext">Creative Director</span></p>
-                                </div>
-
-                            </div>
-                            <div class="col-md-4">
-                                <div class="box-testimony animate-box">
-                                    <blockquote>
-                                        <span class="quote"><span><i class="icon-quotes-right"></i></span></span>
-                                        <p>&ldquo;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.&rdquo;</p>
-                                    </blockquote>
-                                    <p class="author">John Doe, CEO <a href="http://freehtml5.co/" target="_blank">FREEHTML5.co</a> <span class="subtext">Creative Director</span></p>
-                                </div>
-
-
-                            </div>
-                            <div class="col-md-4">
-                                <div class="box-testimony animate-box">
-                                    <blockquote>
-                                        <span class="quote"><span><i class="icon-quotes-right"></i></span></span>
-                                        <p>&ldquo;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.&rdquo;</p>
-                                    </blockquote>
-                                    <p class="author">John Doe, Founder <a href="#">FREEHTML5.co</a> <span class="subtext">Creative Director</span></p>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <footer>
-                    <div id="footer">
-                        <div class="container">
-                            <div class="row row-bottom-padded-md">
-                                <div class="col-md-2 col-sm-2 col-xs-12 fh5co-footer-link">
-                                    <h3>About Travel</h3>
-                                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                                </div>
-                                <div class="col-md-2 col-sm-2 col-xs-12 fh5co-footer-link">
-                                    <h3>Top Flights Routes</h3>
-                                    <ul>
-                                        <li><a href="#">Manila flights</a></li>
-                                        <li><a href="#">Dubai flights</a></li>
-                                        <li><a href="#">Bangkok flights</a></li>
-                                        <li><a href="#">Tokyo Flight</a></li>
-                                        <li><a href="#">New York Flights</a></li>
-                                    </ul>
-                                </div>
-                                <div class="col-md-2 col-sm-2 col-xs-12 fh5co-footer-link">
-                                    <h3>Top Hotels</h3>
-                                    <ul>
-                                        <li><a href="#">Boracay Hotel</a></li>
-                                        <li><a href="#">Dubai Hotel</a></li>
-                                        <li><a href="#">Singapore Hotel</a></li>
-                                        <li><a href="#">Manila Hotel</a></li>
-                                    </ul>
-                                </div>
-                                <div class="col-md-2 col-sm-2 col-xs-12 fh5co-footer-link">
-                                    <h3>Interest</h3>
-                                    <ul>
-                                        <li><a href="#">Beaches</a></li>
-                                        <li><a href="#">Family Travel</a></li>
-                                        <li><a href="#">Budget Travel</a></li>
-                                        <li><a href="#">Food &amp; Drink</a></li>
-                                        <li><a href="#">Honeymoon and Romance</a></li>
-                                    </ul>
-                                </div>
-                                <div class="col-md-2 col-sm-2 col-xs-12 fh5co-footer-link">
-                                    <h3>Best Places</h3>
-                                    <ul>
-                                        <li><a href="#">Boracay Beach</a></li>
-                                        <li><a href="#">Dubai</a></li>
-                                        <li><a href="#">Singapore</a></li>
-                                        <li><a href="#">Hongkong</a></li>
-                                    </ul>
-                                </div>
-                                <div class="col-md-2 col-sm-2 col-xs-12 fh5co-footer-link">
-                                    <h3>Affordable</h3>
-                                    <ul>
-                                        <li><a href="#">Food &amp; Drink</a></li>
-                                        <li><a href="#">Fare Flights</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6 col-md-offset-3 text-center">
-                                    <p class="fh5co-social-icons">
-                                        <a href="#"><i class="icon-twitter2"></i></a>
-                                        <a href="#"><i class="icon-facebook2"></i></a>
-                                        <a href="#"><i class="icon-instagram"></i></a>
-                                        <a href="#"><i class="icon-dribbble2"></i></a>
-                                        <a href="#"><i class="icon-youtube"></i></a>
-                                    </p>
-                                    <p>Copyright 2016 Free Html5 <a href="#">Module</a>. All Rights Reserved. <br>Made with <i class="icon-heart3"></i> by <a href="http://freehtml5.co/" target="_blank">Freehtml5.co</a> / Demo Images: <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </footer>
-
-
-
-            </div>
-            <!-- END fh5co-page -->
-
+    <nav>
+        <div class="nav-wrapper light-blue darken-3" >            
+            <a href="index.html" class="brand-logo center"><i class="material-icons">local_airport</i>AIRLIFES</a>            
+            <ul id="nav-mobile" class="left hide-on-med-and-down">
+                <li><a href="index.html">Passagens</a></li>
+                <li><a href="painel.html">Meus Pedidos</a></li>
+            </ul>
         </div>
-        <!-- END fh5co-wrapper -->
+    </nav>
 
-        <!-- jQuery -->
+    <div class="container center-align" style="padding-top: 1cm; padding-bottom: 3.5cm;">
+        <div class="col s12 m7">
+            <div class="card horizontal cyan lighten-5">
+              <div class="card-image">
+                <img src="img/voo.png">
+              </div>
+              <div class="card-stacked">
+                <div class="card-content">
+
+                    <div class="row">                        
+                            <form class="col s12">
+                                <div class="input-field col s6">
+                                    <input id="origem" type="text" class="validate">
+                                    <label for="origem">Origem</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <input id="destino" type="text" class="validate">
+                                    <label for="destino">Destino</label>
+                                </div>                            
+                                <div class="input-field col s6">
+                                    <input id="data_ida" type="text" class="datepicker">
+                                    <label for="data_ida">Data Ida</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <input id="data_volta" type="text" class="datepicker">
+                                    <label for="data_volta">Data Volta</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <input id="quantidade" type="number" class="validate" min="1">
+                                    <label for="quantidade">Quantidade</label>
+                                </div>
+                                
+                                <div class="col s6">
+                                    <p>
+                                        <input name="group1" type="radio" id="somente_ida" />
+                                        <label for="somente_ida">Somente Ida</label>
+                                    </p>
+                                    <p>
+                                        <input name="group1" type="radio" id="ida_volta" />
+                                        <label for="ida_volta">Ida e Volta</label>
+                                    </p>
+                                </div>
+                                                        
+                            </form>
+                        </div>
 
 
-        <script src="js/jquery.min.js"></script>
-        <!-- jQuery Easing -->
-        <script src="js/jquery.easing.1.3.js"></script>
-        <!-- Bootstrap -->
-        <script src="js/bootstrap.min.js"></script>
-        <!-- Waypoints -->
-        <script src="js/jquery.waypoints.min.js"></script>
-        <script src="js/sticky.js"></script>
 
-        <!-- Stellar -->
-        <script src="js/jquery.stellar.min.js"></script>
-        <!-- Superfish -->
-        <script src="js/hoverIntent.js"></script>
-        <script src="js/superfish.js"></script>
-        <!-- Magnific Popup -->
-        <script src="js/jquery.magnific-popup.min.js"></script>
-        <script src="js/magnific-popup-options.js"></script>
-        <!-- Date Picker -->
-        <script src="js/bootstrap-datepicker.min.js"></script>
-        <!-- CS Select -->
-        <script src="js/classie.js"></script>
-        <script src="js/selectFx.js"></script>
+                </div>
+                <div class="card-action">
+                        <div class="blue-text text-darken-2">
+                            <a class="waves-effect waves-light btn" onclick="guardarDadosBusca();"><i class="material-icons right">search</i>BUSCAR</a>                                            
+                        </div> 
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
 
-        <!-- Main JS -->
-        <script src="js/main.js"></script>
-
-    </body>
+    <!-- FOOTER -->
+    <footer class="page-footer light-blue darken-3">
+        <div class="container">
+            <div class="row">
+            <div class="col l6 s12">
+                <h5 class="white-text">Sobre nós</h5>
+                <p class="grey-text text-lighten-4" align="justify">Com a Airlifes você está sempre onde merece: Lá em cima. Isto porque aqui nós fazemos de tudo para você se sentir especial. As características e diferenciais de nosso serviço e atendimento são resultado do trabalho de um time que pensa o tempo todo em suas necessidades.</p>
+            </div>
+            <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Informações</h5>
+                <ul>
+                <li><a class="grey-text text-lighten-3" href="#!">SAC</a></li>
+                <li><a class="grey-text text-lighten-3" href="#!">Perguntas frequentes</a></li>
+                <li><a class="grey-text text-lighten-3" href="#!">Telefones</a></li>
+                <li><a class="grey-text text-lighten-3" href="#!">Protocolo de atendimento</a></li>
+                </ul>
+            </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+            © 2017 Airlifes Linhas Aéreas
+            <a class="grey-text text-lighten-4 right" href="#!">ES-010, Km-6,5 - Manguinhos, Serra - ES, 29173-087</a>
+            </div>
+        </div>
+    </footer>
+   
+    
+  </body>
 </html>
-

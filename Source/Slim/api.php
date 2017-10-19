@@ -1,6 +1,6 @@
 <?php
 
-//error_reporting(E_WARNING);
+error_reporting(E_WARNING);
 ini_set('default_charset','UTF-8');
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
@@ -23,6 +23,47 @@ $app->add(function ($req, $res, $next) {
             ->withHeader('Access-Control-Allow-Origin', '*')
             ->withHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Accept, Origin, Authorization')
             ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+});
+
+
+$app->get('/getVooById/{id}', function (Request $request, Response $response) {
+    
+    require_once('../Dao/AeroportoDAO.php');
+    require_once('../Dao/AviaoDAO.php');
+    require_once('../Dao/ClienteDAO.php');
+    require_once('../Dao/VooDAO.php');
+    
+    $id = $request->getAttribute('id');
+    
+    $voos = VooDAO::pegarVooPorId($id);   
+   
+    $i = 0;
+    foreach ($voos as $voo) {
+        $list[$i] = array(
+            'idVoo' => $voo->getId(), 
+            'codigo' => $voo->getCodigo(),
+            'partida' => $voo->getHorarioPartida(),
+            'chegada' => $voo->getHorarioChegada(),
+            'preco' => $voo->getPreco(),
+            'aeroporto_partida' => $voo->getAeroportoOrigem()->getNome(),
+            'cidade_partida' => $voo->getAeroportoOrigem()->getCidade(),
+            'estado_partida' => $voo->getAeroportoOrigem()->getEstado(),
+            'pais_partida' => $voo->getAeroportoOrigem()->getPais(),
+            'sigla_aeroporto_partida' =>$voo->getAeroportoOrigem()->getSigla(),
+            'aeroporto_destino' => $voo->getAeroportoDestino()->getNome(),
+            'cidade_destino' => $voo->getAeroportoDestino()->getCidade(),
+            'estado_destino' => $voo->getAeroportoDestino()->getEstado(),
+            'pais_destino' => $voo->getAeroportoDestino()->getPais(),
+            'sigla_aeroporto_destino' =>$voo->getAeroportoDestino()->getSigla(),
+            'modelo_aviao' => $voo->getAviao()->getModelo(),
+            'capacidade_aviao' => $voo->getAviao()->getCapacidade(),
+            'fabricante_aviao' => $voo->getAviao()->getFabricante()
+            );
+        $i++;
+    }    
+    $response->getBody()->write(json_encode($list,JSON_UNESCAPED_UNICODE));
+
+    return $response;//->withHeader('Content-type','application/json; charset=utf-8');
 });
 
 
@@ -117,21 +158,46 @@ $app->get('/getTodosVoos', function (Request $request, Response $response) {
     return $response;
 });
 
-$app->get('/inserirTicket/{cpf}/{nome}/{dataNascimento}/{email}/{telefone}/{idCompra}/{idVoo}/{numeroAssento}/', function (Request $request, Response $response) {
+$app->get('/inserirTicket/{idCompra}/{idVoo}/{numeroAssento}/{idPassageiro}', function (Request $request, Response $response) {
     
-    //CPF	NOME	DATA_NASCIMENTO	EMAIL	TELEFONE
+    require_once('../Dao/VooDAO.php');
+    require_once('../Dao/TicketDAO.php');
+    
+    $idCompra = $request->getAttribute('idCompra');
+    $idVoo = $request->getAttribute('idVoo');
+    $numeroAssento = $request->getAttribute('numeroAssento');
+    $idPassageiro = $request->getAttribute('idPassageiro');
+    $desconto = 0;
+    
+    TicketDAO::inserirTicket($idVoo, $numeroAssento, $desconto, $idCompra, $idPassageiro);
 
-
-    echo "tetete";
 });
 
 
+$app->get('/inserirCompra/{numCartao}/{idCliente}', function (Request $request, Response $response) {
+    
+    require_once('../Dao/VooDAO.php');
+    require_once('../Dao/CompraDAO.php');
+    
+    $numCartao = $request->getAttribute('numCartao');
+    $idCliente = $request->getAttribute('idCliente');
+    
+    CompraDAO::inserirCompra($numCartao, $idCliente);    
+
+});
 
 
-
-$app->get('/teste', function (Request $request, Response $response) {
-
-    echo "tetete";
+$app->get('/inserirPassageiro/{nome}/{cpf}/{dataNascimento}', function (Request $request, Response $response) {
+        
+    require_once('../Dao/VooDAO.php');
+    require_once('../Dao/PassageiroDAO.php');
+    
+    $nome = $request->getAttribute('nome');
+    $cpf = $request->getAttribute('cpf');
+    $dataNascimento = $request->getAttribute('dataNascimento');
+        
+    PassageiroDAO::inserirPassageiro($cpf, $nome, $dataNascimento);  
+    
 });
 
 $app->run();

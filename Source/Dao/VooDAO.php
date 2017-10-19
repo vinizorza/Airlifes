@@ -4,6 +4,8 @@ require_once('../Tools/DbConnection.php');
 require_once('../Modelo/Voo.php');
 require_once('../Modelo/Aviao.php');
 require_once('../Modelo/Aeroporto.php');
+require_once('AviaoDAO.php');
+require_once('AeroportoDAO.php');
 
 class VooDAO{
 

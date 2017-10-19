@@ -1,21 +1,17 @@
 <?php
 
 require_once('../Tools/DbConnection.php');
-require_once('../Modelo/Aeroporto.php');
+require_once('../Modelo/Ticket.php');
 
 class TicketDAO{
-    public static function inserirTicket($idVoo, $nome, $dataNascimento){
+    public static function inserirTicket($idVoo, $numeroAssento, $desconto, $idCompra, $idPassageiro){
         
-        //VOO_idVOO	CODIGO_ASSENTO	DESCONTO	COMPRA_idCOMPRA	PASSAGEIRO_idPASSAGEIRO
-
         $connection = DbConnection::getdbconnect();
         
-        $query = "INSERT INTO ticket (idTICKET, VOO_idVOO, CODIGO_ASSENTO, DESCONTO, COMPRA_idCOMPRA, PASSAGEIRO_idPASSAGEIRO) VALUES (NULL,".$idVoo.", '". $codigoAssento."','".$desconto."','".$idCompra."','".$idPassageiro."')";
+        $query = "INSERT INTO ticket (idTICKET, VOO_idVOO, CODIGO_ASSENTO, DESCONTO, COMPRA_idCOMPRA, PASSAGEIRO_idPASSAGEIRO) VALUES (NULL,".$idVoo.", '". $numeroAssento."','".$desconto."','".$idCompra."','".$idPassageiro."')";
 
-        echo $query;
-//        $stmt = $connection->prepare('SELECT * FROM aeroporto WHERE idAEROPORTO = ' . "'" .$id."'");
-//        $stmt->execute();
+        $stmt = $connection->prepare($query);
+        $stmt->execute();
         
-     
     }
 }
