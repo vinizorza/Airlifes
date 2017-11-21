@@ -1,0 +1,20 @@
+BUSCAR VOO PELA SIGLA:
+
+	http://viniciuszorzanelli.com/Source/Slim/api.php/getVoos/{data}/{SiglaAeroportoOrigem}/{SiglaAeroportoDestino}
+	
+	Exemplo:	
+	http://viniciuszorzanelli.com/Source/Slim/api.php/getVoos/2017-09-13/VIX/CGH
+
+INSERIR COMPRA (Esta função retorna o ID da compra):
+	
+	http://viniciuszorzanelli.com/Source/Slim/api.php/inserirCompra/{nCartao}/{cpfCliente}
+	
+	Exemplo:
+	http://viniciuszorzanelli.com/Source/Slim/api.php/inserirCompra/3232/32132132132
+
+INSERIR TICKET (Esta função retorna o ID da compra):
+
+	http://viniciuszorzanelli.com/Source/Slim/api.php/inserirTicket/{idCompra}/{idVoo}/{numeroAssento}/{nomePassageiro}/{cpf}/{dataNascimento}
+	
+	Exemplo:
+	http://viniciuszorzanelli.com/Source/Slim/api.php/inserirTicket/1/1/42/Jose/15874/1980-05-09
