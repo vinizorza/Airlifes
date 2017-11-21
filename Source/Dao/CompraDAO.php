@@ -7,14 +7,17 @@ require_once('../Modelo/Aeroporto.php');
 
 class CompraDAO{
 
-    public static function inserirCompra($numeroCartao, $idCliente){
+    public static function inserirCompra($numeroCartao, $cpf){
 
         $connection = DbConnection::getdbconnect();
-        $query = 'INSERT INTO compra (idCOMPRA, HORARIO, NUMERO_CARTAO, CLIENTE_idCLIENTE, idHOSPEDAGEM) VALUES (NULL, NOW(),'."'".$numeroCartao."'".','.$idCliente.',NULL)';
-
+        
+        $Cliente = ClienteDAO::getClienteByCpf($cpf);
+        $query = 'INSERT INTO compra (idCOMPRA, HORARIO, NUMERO_CARTAO, CLIENTE_idCLIENTE, idHOSPEDAGEM) VALUES (NULL, NOW(),'."'".$numeroCartao."'".','.$Cliente->getId().',NULL)';
+        
         $stmt = $connection->prepare($query);
         $stmt->execute();
         
+        return strval($connection->lastInsertId());
         
     }
     

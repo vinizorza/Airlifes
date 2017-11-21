@@ -47,11 +47,10 @@ class VooDAO{
                          AND idAEROPORTO_DESTINO = destino.idAEROPORTO 
                          AND idAVIAO = AVIAO_idAVIAO
                      WHERE HORARIO_PARTIDA LIKE '."'%".$data."%'".
-                         'AND (origem.NOME LIKE '."'%".$origem."%'".' OR origem.CIDADE LIKE '."'%".$origem."%')".
-                         'AND (destino.NOME LIKE '."'%".$destino."%'".' OR destino.CIDADE LIKE '."'%".$destino."%')".
+                         'AND (origem.NOME LIKE '."'%".$origem."%'".' OR origem.CIDADE LIKE '."'%".$origem."%' OR origem.SIGLA LIKE '%".$origem."%')".
+                         'AND (destino.NOME LIKE '."'%".$destino."%'".' OR destino.CIDADE LIKE '."'%".$destino."%' OR destino.SIGLA LIKE '%".$destino."%')".
                          'AND CAPACIDADE > 0;';
         
-
         $stmt = $connection->prepare($str);
         $stmt->execute();
           

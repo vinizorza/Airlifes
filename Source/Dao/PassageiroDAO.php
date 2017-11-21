@@ -10,6 +10,7 @@ class PassageiroDAO{
         $stmt = $connection->prepare($query);
         $stmt->execute();
         
+        return $connection->lastInsertId();        
      
     }
 }

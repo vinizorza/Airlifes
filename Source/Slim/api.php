@@ -153,51 +153,57 @@ $app->get('/getTodosVoos', function (Request $request, Response $response) {
         $i++;
     }    
 	
-	$response->getBody()->write(json_encode($list));
+    $response->getBody()->write(json_encode($list));
 
     return $response;
 });
 
-$app->get('/inserirTicket/{idCompra}/{idVoo}/{numeroAssento}/{idPassageiro}', function (Request $request, Response $response) {
+$app->get('/inserirTicket/{idCompra}/{idVoo}/{numeroAssento}/{nomePassageiro}/{cpf}/{dataNascimento}', function (Request $request, Response $response) {
     
     require_once('../Dao/VooDAO.php');
     require_once('../Dao/TicketDAO.php');
+    require_once('../Dao/AeroportoDAO.php');
+    require_once('../Dao/AviaoDAO.php');
+    require_once('../Dao/ClienteDAO.php');
+    require_once('../Dao/PassageiroDAO.php');
     
     $idCompra = $request->getAttribute('idCompra');
     $idVoo = $request->getAttribute('idVoo');
     $numeroAssento = $request->getAttribute('numeroAssento');
-    $idPassageiro = $request->getAttribute('idPassageiro');
+    $nomePassageiro = $request->getAttribute('nomePassageiro');
+    $cpf = $request->getAttribute('cpf');
+    $dataNascimento = $request->getAttribute('dataNascimento');
     $desconto = 0;
     
-    TicketDAO::inserirTicket($idVoo, $numeroAssento, $desconto, $idCompra, $idPassageiro);
+    return TicketDAO::inserirTicket($idVoo, $numeroAssento, $desconto, $idCompra, $nomePassageiro, $cpf, $dataNascimento);
 
 });
 
 
-$app->get('/inserirCompra/{numCartao}/{idCliente}', function (Request $request, Response $response) {
+$app->get('/inserirCompra/{numCartao}/{cpf}', function (Request $request, Response $response) {
     
-    require_once('../Dao/VooDAO.php');
+    require_once('../Dao/ClienteDAO.php');
     require_once('../Dao/CompraDAO.php');
     
     $numCartao = $request->getAttribute('numCartao');
-    $idCliente = $request->getAttribute('idCliente');
-    
-    CompraDAO::inserirCompra($numCartao, $idCliente);    
-
-});
-
-
-$app->get('/inserirPassageiro/{nome}/{cpf}/{dataNascimento}', function (Request $request, Response $response) {
-        
-    require_once('../Dao/VooDAO.php');
-    require_once('../Dao/PassageiroDAO.php');
-    
-    $nome = $request->getAttribute('nome');
     $cpf = $request->getAttribute('cpf');
-    $dataNascimento = $request->getAttribute('dataNascimento');
         
-    PassageiroDAO::inserirPassageiro($cpf, $nome, $dataNascimento);  
-    
+    return CompraDAO::inserirCompra($numCartao, $cpf);
+
 });
+
+
+//$app->get('/inserirPassageiro/{nome}/{cpf}/{dataNascimento}', function (Request $request, Response $response) {
+//        
+//    require_once('../Dao/VooDAO.php');
+//    require_once('../Dao/PassageiroDAO.php');
+//    
+//    $nome = $request->getAttribute('nome');
+//    $cpf = $request->getAttribute('cpf');
+//    $dataNascimento = $request->getAttribute('dataNascimento');
+//        
+//    PassageiroDAO::inserirPassageiro($cpf, $nome, $dataNascimento);  
+//    
+//});
 
 $app->run();
