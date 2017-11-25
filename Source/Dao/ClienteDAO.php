@@ -33,4 +33,19 @@ class ClienteDAO{
         $stmt->execute();
 
     }
+    
+    public static function getClienteByCpf($cpf){
+        
+        $connection = DbConnection::getdbconnect();
+
+        $stmt = $connection->prepare('SELECT * FROM cliente WHERE CPF = ' . "'" .$cpf."'");
+        $stmt->execute();
+        
+        $row = $stmt->fetch();
+        
+        $cliente = new Cliente($row[NOME], $row[TELEFONE], $row[EMAIL], $row[CPF]);
+        $cliente->setId($row[idCLIENTE]);        
+        
+        return $cliente;
+    }
 }

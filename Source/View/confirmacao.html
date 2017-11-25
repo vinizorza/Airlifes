@@ -1,16 +1,12 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html>
   <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-
     <!--Import jQuery before materialize.js-->
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
@@ -19,9 +15,10 @@
 
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
+    
     <!--Import JS functions.js-->
-    <script type="text/javascript" src="./js/index.js"></script>
+    <script type="text/javascript" src="./js/date.js"></script>
+    <script type="text/javascript" src="./js/confirmacao.js"></script>
 
     <style>
         ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
@@ -36,7 +33,10 @@
   <body>
 
     <script>
+
         $(document).ready(function() {
+            $('select').material_select();
+
             $('.datepicker').pickadate({
                 selectMonths: true, // Creates a dropdown to control month
                 selectYears: 15, // Creates a dropdown of 15 years to control year,
@@ -44,13 +44,13 @@
                 clear: 'Limpar',
                 close: 'Ok',
                 closeOnSelect: false, // Close upon selecting a date,
-                format: 'dd/mm/yyyy' 
+                format: 'dd-mm-yyyy' 
             });
 
             var date = $('.datepicker').datepicker({ dateFormat: 'dd-mm-yy' }).val();
             console.log(date);
+
         });
-        
     </script>
 
     <nav>
@@ -63,62 +63,62 @@
         </div>
     </nav>
 
-    <div class="container center-align" style="padding-top: 1cm; padding-bottom: 3.5cm;">
-        <div class="col s12 m7">
-            <div class="card horizontal cyan lighten-5">
-              <div class="card-image">
-                <img src="img/voo.png">
-              </div>
-              <div class="card-stacked">
-                <div class="card-content">
+    <div class="container center-align" style="padding-top: 1cm;">
+        
+        <!-- DETALHES -->
+        <div id="detalhes">
+        
+        </div>
 
-                    <div class="row">                        
+
+
+        <!-- PAGAMENTO -->
+        <div class="row">
+            <div class="col s12 m12">
+                <div class="card teal lighten-4">
+                    <div class="card-content black-text" style="padding-bottom: 5px;">                        
+                        <div class="row">                        
                             <form class="col s12">
+                                <span class="card-title">PAGAMENTO</span> 
                                 <div class="input-field col s6">
-                                    <input id="origem" type="text" class="validate">
-                                    <label for="origem">Origem</label>
+                                    <input placeholder="" id="numero_cartao" type="text" class="validate">
+                                    <label for="first_name">Numero do cartão</label>
                                 </div>
                                 <div class="input-field col s6">
-                                    <input id="destino" type="text" class="validate">
-                                    <label for="destino">Destino</label>
+                                    <input placeholder="" id="first_name" type="text" class="validate">
+                                    <label for="first_name">Nome no cartão</label>
                                 </div>                            
                                 <div class="input-field col s6">
-                                    <input id="data_ida" type="text" class="datepicker">
-                                    <label for="data_ida">Data Ida</label>
+                                    <input placeholder="" id="first_name" type="text" class="validate">
+                                    <label for="first_name">Código de segurança</label>
                                 </div>
                                 <div class="input-field col s6">
-                                    <input id="data_volta" type="text" class="datepicker">
-                                    <label for="data_volta">Data Volta</label>
-                                </div>
-                                <div class="input-field col s6">
-                                    <input id="quantidade" type="number" class="validate" min="1">
-                                    <label for="quantidade">Quantidade</label>
-                                </div>
-                                
-                                <div class="col s6">
-                                    <p>
-                                        <input name="group1" type="radio" id="somente_ida" />
-                                        <label for="somente_ida">Somente Ida</label>
-                                    </p>
-                                    <p>
-                                        <input name="group1" type="radio" id="ida_volta" />
-                                        <label for="ida_volta">Ida e Volta</label>
-                                    </p>
-                                </div>
-                                                        
+                                    <select class="icons">
+                                        <option value="" disabled selected>Escolha a bandeira</option>
+                                        <option value="" data-icon="img/visa.png" class="left circle">Visa</option>
+                                        <option value="" data-icon="img/mcard.png" class="left circle">Mastercard</option>
+                                        <option value="" data-icon="img/aexpress.jpg" class="left circle">American Express</option>
+                                    </select>
+                                    <label>Bandeira</label>
+                                </div>                         
                             </form>
                         </div>
-
-
-
+                    </div>
                 </div>
-                <div class="card-action">
-                        <div class="blue-text text-darken-2">
-                            <a class="waves-effect waves-light btn" onclick="guardarDadosBusca();"><i class="material-icons right">search</i>BUSCAR</a>                                            
-                        </div> 
-                </div>
-              </div>
             </div>
+        </div>
+
+
+        <!-- PASSAGEIROS -->
+        <div id="passageiros">
+        
+        </div>
+
+        <!-- BOTAO CONFIRMAR -->
+        <div class="container" style="padding-bottom: 1cm;">
+            <div class="blue-text text-darken-2">
+                <a class="waves-effect waves-light btn" onclick="finalizarCompra();"><i class="material-icons right">check</i>Finalizar Compra</a>                                            
+            </div> 
         </div>
     </div>
 
@@ -148,7 +148,6 @@
             </div>
         </div>
     </footer>
-   
     
   </body>
 </html>

@@ -62,11 +62,11 @@ class Voo{
 	}
 	
 	function getAeroportoDestino(){
-		return $this->aroportoDestino;
+		return $this->aeroportoDestino;
 	}
 	
 	function setAeroportoDestino($value){
-		$this->aroportoDestino = $value;
+		$this->aeroportoDestino = $value;
 	}
 	
 	function getAviao(){
