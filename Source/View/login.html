@@ -21,7 +21,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
     <!--Import JS functions.js-->
-    <script type="text/javascript" src="./js/index.js"></script>
+    <script type="text/javascript" src="./js/login.js"></script>
 
     <style>
         ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
@@ -52,6 +52,28 @@
         });
         
     </script>
+    
+    <!-- Modal Usuario nao encontrado -->
+    <div id="modal1" class="modal">
+      <div class="modal-content">
+        <h4>Falha no login</h4>
+        <p>Usuário não encontrado</p>
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">OK</a>
+      </div>
+    </div>
+    
+    <!-- Modal Senha Errada -->
+    <div id="modal2" class="modal">
+      <div class="modal-content">
+        <h4>Falha no login</h4>
+        <p>Senha Incorreta</p>
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">OK</a>
+      </div>
+    </div>
 
     <nav>
         <div class="nav-wrapper light-blue darken-3" >            
@@ -91,7 +113,7 @@
                 </div>
                 <div class="card-action">
                     <div class="blue-text text-darken-2">
-                        <a class="waves-effect waves-light btn" onclick="guardarDadosBusca();"><i class="material-icons right">forward</i>LOGIN</a>                                            
+                        <a class="waves-effect waves-light btn" onclick="realizarLogin();"><i class="material-icons right">forward</i>LOGIN</a>                                            
                     </div> 
                 </div>
               </div>

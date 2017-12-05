@@ -7,12 +7,14 @@ class Cliente {
 	protected $email;
 	protected $id;
         protected $cpf;
+        protected $senha;
 	
-	function Cliente($nome, $telefone, $email, $cpf){
+	function Cliente($nome, $telefone, $email, $cpf, $senha){
 		$this->nome = $nome;
 		$this->telefone = $telefone;
 		$this->email = $email;
                 $this->cpf = $cpf;
+                $this->senha = $senha;
 	}
 
 	function getNome(){
@@ -52,6 +54,14 @@ class Cliente {
 	
 	function setId($value){
 		$this->id = $value;
+	}
+        
+        function getSenha(){
+		return $this->senha;
+	}
+	
+	function setSenha($value){
+		$this->senha = $value;
 	}
 
     function buscarCompras(){

@@ -152,10 +152,12 @@ $app->get('/getTodosVoos', function (Request $request, Response $response) {
                 );
         $i++;
     }    
-	
+
     $response->getBody()->write(json_encode($list));
 
-    return $response;
+//    //Esse método retorna com os assentos funcionando
+//    return $response->withHeader('Content-Type', 'application/json')->withStatus(200)->withJson($list, null, JSON_UNESCAPED_UNICODE | JSON_NUMERIC_CHECK);
+
 });
 
 $app->get('/inserirTicket/{idCompra}/{idVoo}/{numeroAssento}/{nomePassageiro}/{cpf}/{dataNascimento}', function (Request $request, Response $response) {
@@ -192,18 +194,25 @@ $app->get('/inserirCompra/{numCartao}/{cpf}', function (Request $request, Respon
 
 });
 
+$app->get('/getClienteByEmail/{email}', function (Request $request, Response $response) {
+    
+    require_once('../Dao/ClienteDAO.php');
+    
+    $email = $request->getAttribute('email');
+        
+    $cliente =  ClienteDAO::getClienteByEmail($email);
+    
+    $clienteJson = array(
+        'nome' => $cliente->getNome(),
+        'telefone' => $cliente->getTelefone(),
+        'email' => $cliente->getEmail(),
+        'id' => $cliente->getId(),
+        'cpf' => $cliente->getCpf(),
+        'senha' => $cliente->getSenha()
+    );
+    
+    $response->getBody()->write(json_encode($clienteJson));
 
-//$app->get('/inserirPassageiro/{nome}/{cpf}/{dataNascimento}', function (Request $request, Response $response) {
-//        
-//    require_once('../Dao/VooDAO.php');
-//    require_once('../Dao/PassageiroDAO.php');
-//    
-//    $nome = $request->getAttribute('nome');
-//    $cpf = $request->getAttribute('cpf');
-//    $dataNascimento = $request->getAttribute('dataNascimento');
-//        
-//    PassageiroDAO::inserirPassageiro($cpf, $nome, $dataNascimento);  
-//    
-//});
+});
 
 $app->run();

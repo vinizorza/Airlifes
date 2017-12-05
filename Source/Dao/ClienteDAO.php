@@ -13,7 +13,7 @@ class ClienteDAO{
         
         $row = $stmt->fetch();
         
-        $cliente = new Cliente($row[NOME], $row[TELEFONE], $row[EMAIL], $row[CPF]);
+        $cliente = new Cliente($row[NOME], $row[TELEFONE], $row[EMAIL], $row[CPF], $row[SENHA]);
         $cliente->setId($row[idCLIENTE]);        
         
         return $cliente;
