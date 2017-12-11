@@ -20,7 +20,8 @@ require_once('../Dao/TicketDAO.php');
 
 //$oi = AeroportoDAO::pegarAeroportoPeloId(1);
 
-print_r(ClienteDAO::getCompras(2));
+//print_r(ClienteDAO::getCompras(2));
+CompraDAO::inserirHospedagem(5, 2);
 //print_r($oi);
 
 //$oi = VooDAO::pegarTodosVoos();

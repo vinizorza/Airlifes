@@ -35,7 +35,6 @@
                 localStorage.setItem("clienteEmail", cliente.email);      
                 localStorage.setItem("clienteNome", cliente.nome);
                 localStorage.setItem("clienteCpf", cliente.cpf);
-                alert(localStorage.paginaAtual);
                 if(localStorage.paginaAtual == "confirmacao"){                    
                     localStorage.setItem("paginaAtual", null);
                     window.location.href='confirmacao.html';

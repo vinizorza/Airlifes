@@ -21,6 +21,18 @@ class CompraDAO{
         
     }
     
+    public static function inserirHospedagem($idHospedagem, $idCompra){
+
+        $connection = DbConnection::getdbconnect();
+        
+        $Cliente = ClienteDAO::getClienteByCpf($cpf);
+        $query = "UPDATE COMPRA SET idHOSPEDAGEM = " . $idHospedagem . " WHERE idCOMPRA = " . $idCompra;
+        
+        $stmt = $connection->prepare($query);
+        $stmt->execute();
+        
+    }
+    
         
     
     

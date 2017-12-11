@@ -54,6 +54,8 @@ function finalizarCompra(){
         async: false,
         success: function(idCompra) {
             
+            localStorage.setItem("idCompra",idCompra);
+            
             //Inserir os tickets
             for(var i = 0; i < localStorage.quantidade; i++){
                 //Inserir tickets ida

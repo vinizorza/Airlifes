@@ -207,6 +207,23 @@ $app->get('/inserirCliente/{nome}/{telefone}/{email}/{cpf}/{senha}', function (R
  
 });
 
+$app->get('/inserirHospedagem/{idHospedagem}/{idCompra}', function (Request $request, Response $response) {
+    
+    require_once('../Dao/CompraDAO.php');
+    require_once('../Dao/ClienteDAO.php');
+    
+    $idHospedagem = $request->getAttribute('idHospedagem');
+    $idCompra = $request->getAttribute('idCompra');
+    
+    CompraDAO::inserirHospedagem($idHospedagem, $idCompra);
+    
+    return "OK";
+ 
+});
+
+
+
+
 $app->get('/getClienteByEmail/{email}', function (Request $request, Response $response) {
     
     require_once('../Dao/ClienteDAO.php');

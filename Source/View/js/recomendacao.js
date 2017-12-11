@@ -2,16 +2,38 @@ $( document ).ready(function() {
   renderizarRecomendacao();
 });
 
+function reservarHospedagem($idHospedagem){
+    var req = "http://localhost/Source/Slim/api.php/inserirHospedagem/" + $idHospedagem + "/" + localStorage.idCompra;
+    console.log(req);
+    $.ajax({
+        url: req,
+        dataType: 'json',
+        async: false  
+    });
+    window.location.href='meusPedidos.html';
+}
+
 
 function renderizarRecomendacao(){
 
     var destino = localStorage.destino;
     var data_ida = localStorage.data_ida;
-    //var data_volta = localStorage.data_volta;
+    var data_volta = localStorage.data_volta;
     var quantidade = localStorage.quantidade;
     var data_ida_convertida = Date.parse(data_ida).toString("yyyy-MM-dd");
+    var data_volta_convertida = Date.parse(data_volta).toString("yyyy-MM-dd");
+    
+    var data_ida_convertida = "2017-12-12";
+    var data_ida_convertida = "2017-12-12";
+    var quantidade = 2;
+    var destino = "BSB";
 
-    var link = "http://echohotel.azurewebsites.net/api/hotel/";
+    var link = "http://echohotel.azurewebsites.net/api/hotel/GetHoteisPorDataLocal?dataInicio="+ data_ida_convertida 
+                                                                             + "&dataTermino=" + data_volta_convertida 
+                                                                                   + "&sigla=" + destino
+                                                                                  + "&guests=" + quantidade;
+    
+    
    
     
     $.ajax({
@@ -23,11 +45,6 @@ function renderizarRecomendacao(){
         console.log(hoteis);
 
         for(var i = 0; i < hoteis.length; i++){
-            
-        var estrelas = "";    
-        for(var j = 0; j < hoteis[i].QtdEstrelas; j++){
-        estrelas += "<i class='material-icons center'>star</i>";                                       
-        }
 
             $("#hoteis").append(
                         "<div class='col l4'>"+
@@ -37,14 +54,12 @@ function renderizarRecomendacao(){
                                 "</div>"+
                                 "<div class='card-content'>"+
                                     "<span class='card-title activator grey-text text-darken-4'>"+hoteis[i].Nome+"<i class='material-icons right'>more_vert</i></span>"+
-                                    "<p><a href='#'>RESERVAR</a></p>"+
+                                    "<p><a id='"+hoteis[i].AcomodacaoId+"' onclick='reservarHospedagem(this.id)';>RESERVAR</a></p>"+
                                 "</div>"+
                                 "<div class='card-reveal'>"+
                                     "<span class='card-title grey-text text-darken-4'>"+hoteis[i].Nome+"<i class='material-icons right'>close</i></span>"+
-                                    "<div class='row'>"+
-                                        "<p>"+estrelas+"</p>"+
-                                    "</div>"+
-                                    "<p>"+hoteis[i].Descricao+"</p>"+
+                                    "<p>"+hoteis[i].DescricaoHotel+"</p>"+
+                                    "<p> Endereço: "+ hoteis[i].Rua + ", Bairro: " + hoteis[i].Bairro + ", CEP: "+ hoteis[i].Cep +"</p>"+
                                 "</div>"+
                             "</div>"+
                         "</div>"
