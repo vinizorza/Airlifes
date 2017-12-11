@@ -1,11 +1,16 @@
 $( document ).ready(function() {
+    localStorage.setItem("paginaAtual", "voos");
   renderizarVoos();
 });
 
 function goToFinalizar(id){
     localStorage.setItem("idVooSelecionado", id);
     
-    window.location.href='confirmacao.html';
+    if(localStorage.tipo == "IDA_VOLTA"){
+        window.location.href='vooVolta.html';
+    }else{
+        window.location.href='confirmacao.html';
+    }
 
 }
 
@@ -17,7 +22,7 @@ function renderizarVoos(){
     var quantidade = localStorage.quantidade;
     var data_ida_convertida = Date.parse(data_ida).toString("yyyy-MM-dd");
 
-    var link = "http://viniciuszorzanelli.com/Source/Slim/api.php/getVoos/"+data_ida_convertida+"/"+origem+"/"+destino;
+    var link = "http://localhost/Source/Slim/api.php/getVoos/"+data_ida_convertida+"/"+origem+"/"+destino;
     
     $("#detalhes").append(
             "<div class='row'>"+
@@ -61,8 +66,6 @@ function renderizarVoos(){
         dataType: 'json',
         async: false,
         success: function(voos) {
-            
-        console.log(voos);
 
         for(var i = 0; i < voos.length; i++){
 

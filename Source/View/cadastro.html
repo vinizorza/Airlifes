@@ -21,7 +21,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
     <!--Import JS functions.js-->
-    <script type="text/javascript" src="./js/index.js"></script>
+    <script type="text/javascript" src="./js/cadastro.js"></script>
+    <script type="text/javascript" src="./js/date.js"></script>
 
     <style>
         ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
@@ -46,19 +47,60 @@
                 closeOnSelect: false, // Close upon selecting a date,
                 format: 'dd/mm/yyyy' 
             });
-
-            var date = $('.datepicker').datepicker({ dateFormat: 'dd-mm-yy' }).val();
-            console.log(date);
         });
         
     </script>
+    
+    <!-- Modal Senhas Nao Coincidem -->
+    <div id="modal1" class="modal">
+      <div class="modal-content">
+        <h4>Ops...</h4>
+        <p>As senhas não coincidem</p>
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">OK</a>
+      </div>
+    </div>
+    
+    <!-- Modal Senhas Muito Curta (< 4) -->
+    <div id="modal2" class="modal">
+      <div class="modal-content">
+        <h4>Ops...</h4>
+        <p>A senha deve possuir mais de 4 caracteres</p>
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">OK</a>
+      </div>
+    </div>
+    
+    <!-- Modal Campos Inconpletos -->
+    <div id="modal3" class="modal">
+      <div class="modal-content">
+        <h4>Ops...</h4>
+        <p>Preencha todos os campos</p>
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">OK</a>
+      </div>
+    </div>
+    
+    <!-- Modal Campos Inconpletos -->
+    <div id="modal4" class="modal">
+      <div class="modal-content">
+        <h4>Ops...</h4>
+        <p>Cliente já cadastrado</p>
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">OK</a>
+      </div>
+    </div>
 
     <nav>
         <div class="nav-wrapper light-blue darken-3" >            
             <a href="index.html" class="brand-logo center"><i class="material-icons">local_airport</i>AIRLIFES</a>            
             <ul id="nav-mobile" class="left hide-on-med-and-down">
                 <li><a href="index.html">Passagens</a></li>
-                <li><a href="painel.html">Meus Pedidos</a></li>
+                <li><a href="meusPedidos.html">Meus Pedidos</a></li>
             </ul>
         </div>
     </nav>
@@ -70,40 +112,40 @@
                 <div class="card-content">
                     <form>
                         <div class="row">  
-                            <div class="input-field col m6">
+                            <div class="input-field col m6 s12">
                                 <input id="nome" type="text" class="validate">
                                 <label for="nome">Nome</label>
                             </div>
-                            <div class="input-field col m6">
+                            <div class="input-field col m6 s12">
                                 <input id="email" type="email" class="validate">
                                 <label for="email">Email</label>
                             </div>
                         </div> 
                         <div class="row"> 
-                            <div class="input-field col m6">
+                            <div class="input-field col m6 s12">
                                 <input id="senha" type="password" class="validate">
                                 <label for="senha">Senha</label>
                             </div>
-                           <div class="input-field col m6">
-                                <input id="confirmacaoSenha" type="password" class="validate">
-                                <label for="confirmacaoSenha">Confirme a Senha</label>
+                           <div class="input-field col m6 s12">
+                                <input id="confirmacao_senha" type="password" class="validate">
+                                <label for="confirmacao_senha">Confirme a Senha</label>
                             </div>
                         </div>
                         <div class="row"> 
-                            <div class="input-field col m6">
+                            <div class="input-field col m6 s12">
                                 <input id="cpf" type="text" class="validate">
                                 <label for="cpf">CPF</label>
                             </div>
-                           <div class="input-field col s6">
-                                    <input id="data_nascimento" type="text" class="datepicker">
-                                    <label for="data_nascimento">Data Nascimento</label>
-                                </div>
+                            <div class="input-field col m6 s12">
+                                <input id="data_nascimento" type="text" class="datepicker">
+                                <label for="data_nascimento">Data Nascimento</label>
+                            </div>
                         </div>
                     </form>
                 </div>
                 <div class="card-action">
                     <div class="blue-text text-darken-2">
-                        <a class="waves-effect waves-light btn" onclick="guardarDadosBusca();"><i class="material-icons right">check</i>Criar Conta</a>                                            
+                        <a class="waves-effect waves-light btn" onclick="realizarCadastro();"><i class="material-icons right">check</i>Criar Conta</a>                                            
                     </div> 
                 </div>
               </div>

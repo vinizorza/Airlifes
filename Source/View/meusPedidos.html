@@ -13,12 +13,12 @@
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 
-    <!--Import JS functions.js-->
-    <script type="text/javascript" src="./js/date.js"></script>
-    <script type="text/javascript" src="./js/recomendacao.js"></script>
-    
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+    <!--Import JS functions.js-->
+    <script type="text/javascript" src="./js/date.js"></script>
+    <script type="text/javascript" src="./js/meusPedidos.js"></script>
 
     <style>
         ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
@@ -32,38 +32,55 @@
 
   <body>
 
+    <script>
+
+        $(document).ready(function() {
+            $('select').material_select();
+
+            $('.datepicker').pickadate({
+                selectMonths: true, // Creates a dropdown to control month
+                selectYears: 15, // Creates a dropdown of 15 years to control year,
+                today: 'Hoje',
+                clear: 'Limpar',
+                close: 'Ok',
+                closeOnSelect: false, // Close upon selecting a date,
+                format: 'dd-mm-yyyy' 
+            });
+
+            var date = $('.datepicker').datepicker({ dateFormat: 'dd-mm-yy' }).val();
+            console.log(date);
+
+        });
+    </script>
+    
+    <!-- Modal Não logado -->
+    <div id="modal1" class="modal">
+      <div class="modal-content">
+        <h4>Faça Login</h4>
+        <p>Usuário não logado</p>
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">OK</a>
+      </div>
+    </div>
+
     <nav>
         <div class="nav-wrapper light-blue darken-3" >            
             <a href="index.html" class="brand-logo center"><i class="material-icons">local_airport</i>AIRLIFES</a>            
             <ul id="nav-mobile" class="left hide-on-med-and-down">
                 <li><a href="index.html">Passagens</a></li>
-                <li><a href="meusPedidos.html">Meus Pedidos</a></li>
             </ul>
+            <div id="autenticacao"></div>
         </div>
     </nav>
 
-    <div class="container center-align" style="padding-top: 1cm;">
-
-            <div class="row">
-                    <div class="col s12 m12">
-                        <h3>Obrigado por escolher nossa companhia.    </h3>
-                        <h5>Você pode ver os detalhes de sua passagem em Minhas Passagens.</h5>
-                        <a>Veja alguns hoteis disponiveis para sua viagem abaixo.</a>
-                    </div>
-                </div>
-
-        <!-- HOTEIS --> 
+    <div class="container center-align" style="padding-top: 1cm;">        
+        <!-- COMPRAS -->
+        <div id="compras">
         
-        <div class='row'>
-            <div id="hoteis">
-
-            </div>
         </div>
-            
-        
-        
-        
     </div>
+
 
     <!-- FOOTER -->
     <footer class="page-footer light-blue darken-3">

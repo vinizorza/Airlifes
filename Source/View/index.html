@@ -46,9 +46,6 @@
                 closeOnSelect: false, // Close upon selecting a date,
                 format: 'dd/mm/yyyy' 
             });
-
-            var date = $('.datepicker').datepicker({ dateFormat: 'dd-mm-yy' }).val();
-            console.log(date);
         });
         
     </script>
@@ -58,8 +55,10 @@
             <a href="index.html" class="brand-logo center"><i class="material-icons">local_airport</i>AIRLIFES</a>            
             <ul id="nav-mobile" class="left hide-on-med-and-down">
                 <li><a href="index.html">Passagens</a></li>
-                <li><a href="painel.html">Meus Pedidos</a></li>
+                <li><a href="meusPedidos.html">Meus Pedidos</a></li>
             </ul>
+            <div id="autenticacao">                
+            </div>   
         </div>
     </nav>
 
@@ -97,7 +96,7 @@
                                 
                                 <div class="col s6">
                                     <p>
-                                        <input name="group1" type="radio" id="somente_ida" />
+                                        <input name="group1" type="radio" id="somente_ida" checked="checked" />
                                         <label for="somente_ida">Somente Ida</label>
                                     </p>
                                     <p>

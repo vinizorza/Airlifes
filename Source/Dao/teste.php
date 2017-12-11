@@ -8,7 +8,7 @@ require_once('../Dao/CompraDAO.php');
 require_once('../Dao/PassageiroDAO.php');
 require_once('../Dao/TicketDAO.php');
 
-$oi = ClienteDAO::getClienteByEmail("vinizorza@hotmail.com");
+//$oi = ClienteDAO::getClienteByEmail("vinizorza@hotmail.com");
 //$oi = VooDAO::pegarVoos("2017-09-13", "VIX","CGH");
 //PassageiroDAO::inserirPassageiro(4747, "Josi", "2000-02-16");
 //$oi = CompraDAO::inserirCompra("3232", "32132132132");
@@ -20,9 +20,8 @@ $oi = ClienteDAO::getClienteByEmail("vinizorza@hotmail.com");
 
 //$oi = AeroportoDAO::pegarAeroportoPeloId(1);
 
-//$cliente = new Cliente("Jose", "32238974", "jose@gmail.com", "32143289743");
-//ClienteDAO::insereCliente($cliente);
+print_r(ClienteDAO::getCompras(2));
 //print_r($oi);
 
 //$oi = VooDAO::pegarTodosVoos();
-print_r($oi);
+//print_r($oi);

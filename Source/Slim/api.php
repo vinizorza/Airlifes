@@ -77,13 +77,13 @@ $app->get('/getVoos/{data}/{origem}/{destino}', function (Request $request, Resp
     $data = $request->getAttribute('data');
     $origem = $request->getAttribute('origem');
     $destino = $request->getAttribute('destino');
-    
-    
-    
-    
 
     $voos = VooDAO::pegarVoos($data, $origem, $destino);
 //"2017-09-19", "Congonhas","Los Angeles"	
+    
+    if($voos == null){
+        return "VOO_404";
+    }
     
     
     $i = 0;
@@ -118,8 +118,7 @@ $app->get('/getVoos/{data}/{origem}/{destino}', function (Request $request, Resp
 
 
 
-$app->get('/getTodosVoos', function (Request $request, Response $response) {
-    
+$app->get('/getTodosVoos', function (Request $request, Response $response) {    
 
     require_once('../Dao/AeroportoDAO.php');
     require_once('../Dao/AviaoDAO.php');
@@ -194,6 +193,20 @@ $app->get('/inserirCompra/{numCartao}/{cpf}', function (Request $request, Respon
 
 });
 
+$app->get('/inserirCliente/{nome}/{telefone}/{email}/{cpf}/{senha}', function (Request $request, Response $response) {
+
+    require_once('../Dao/ClienteDAO.php');
+    
+    $nome = $request->getAttribute('nome');
+    $telefone = $request->getAttribute('telefone');
+    $email = $request->getAttribute('email');
+    $cpf = $request->getAttribute('cpf');
+    $senha = $request->getAttribute('senha');
+    
+    return ClienteDAO::insereCliente($nome, $telefone, $email, $cpf, $senha);   
+ 
+});
+
 $app->get('/getClienteByEmail/{email}', function (Request $request, Response $response) {
     
     require_once('../Dao/ClienteDAO.php');
@@ -212,6 +225,35 @@ $app->get('/getClienteByEmail/{email}', function (Request $request, Response $re
     );
     
     $response->getBody()->write(json_encode($clienteJson));
+
+});
+
+$app->get('/getCompras/{idCliente}', function (Request $request, Response $response) {    
+
+    require_once('../Dao/ClienteDAO.php');
+    $idCliente = $request->getAttribute('idCliente');
+
+    $compras = ClienteDAO::getCompras($idCliente);;
+        
+    $i = 0;
+    foreach ($compras as $compra) {
+        $list[$i] = array(
+                            'HORARIO_COMPRA' => $compra[HORARIO_COMPRA], 
+                            'ID_HOSPEDAGEM' => $compra[ID_HOSPEDAGEM],
+                            'CODIGO_VOO' => $compra[CODIGO_VOO],
+                            'HORARIO_PARTIDA' => $compra[HORARIO_PARTIDA],
+                            'HORARIO_CHEGADA' => $compra[HORARIO_CHEGADA],
+                            'PRECO' => $compra[PRECO],
+                            'CIDADE_ORIGEM' => $compra[CIDADE_ORIGEM],
+                            'CIDADE_DESTINO' => $compra[CIDADE_DESTINO]
+                );
+        $i++;
+    }    
+
+    $response->getBody()->write(json_encode($list));
+
+//    //Esse método retorna com os assentos funcionando
+//    return $response->withHeader('Content-Type', 'application/json')->withStatus(200)->withJson($list, null, JSON_UNESCAPED_UNICODE | JSON_NUMERIC_CHECK);
 
 });
 
