@@ -15,5 +15,4 @@ No *client side* utiliza-se apenas HTML, Javascript, jQuery, CSS e o framework M
 
 Os serviços REST, é utilizado tanto pela aplicação do sistema terceiro, quanto o *client side* da Airlifes
 
-# Airlifes
-Sistema web para venda de passagens de uma companhia aérea (Airlifes). Inclui integração com um sistem de aluguel de carro e de hoteis.
+https://stackedit.io/editor
