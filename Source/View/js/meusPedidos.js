@@ -15,11 +15,16 @@ $( document ).ready(function() {
               );
   }
     
-  $('.modal').modal({
+  $('#modal1').modal({
       dismissible: false,
       complete: function() { 
           window.location.href='login.html'; 
       }
+    }
+  );
+  
+  $('#modal2').modal({
+      dismissible: false
     }
   );
    
@@ -36,10 +41,28 @@ function deslogar(){
     window.location.href='index.html';
 }
 
+function verHospedagem(idHospedagem){
+    
+    var req_hospedagem = "http://echohotel.azurewebsites.net/api/Acomodacao/" + idHospedagem;
+
+    $.ajax({
+        url: req_hospedagem,
+        dataType: 'json',
+        async: false,
+        success: function(hosp){
+            console.log(hosp);
+            $("#nome_hotel").html("<h4>"+ hosp.Hotel.Nome +"</h4>");
+            $("#detalhe_hotel").html("<p><b>Descrição:</b> "+ hosp.Descricao +"</p>");
+            $("#preco_hotel").html("<p><b>Preço:</b> "+ hosp.Valor +"</p>");
+            $('#modal2').modal('open');
+        }
+    });
+}
+
 function renderizarMeusPedidos(){        
     
     var req = "http://localhost/Source/Slim/api.php/getCompras/"+localStorage.clienteId;
-    
+        
     $.ajax({
         url: req,
         dataType: 'json',
@@ -47,7 +70,7 @@ function renderizarMeusPedidos(){
         success: function(data) {
             
             for(var i = 0; i < data.length; i++){
-                
+                                                
                 $("#compras").append(
                     "<div class='row'>"+
                         "<div class='col s12 m12'>"+
@@ -82,8 +105,7 @@ function renderizarMeusPedidos(){
                                                     "<label for='first_name'>Preço</label>"+
                                                 "</div>"+
                                                 "<div class='input-field col s6'>"+
-                                                    "<input disabled placeholder='"+data[i].ID_HOSPEDAGEM+"' id='first_name' type='text' class='validate'>"+
-                                                    "<label for='first_name'>Hospedagem</label>"+
+                                                    "<a id='" + data[i].ID_HOSPEDAGEM + "' onclick='verHospedagem(this.id);'  class='waves-effect waves-light btn'>HOSPEDAGEM</a>" +
                                                 "</div>"+
                                             "</div>"+
                                         "</form>"+

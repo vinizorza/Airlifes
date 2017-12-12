@@ -131,7 +131,7 @@ function renderizarConfirmacao(){
                             "<div class='card-content black-text' style='padding-bottom: 0px;'>"+
                                 "<div class='row'>"+
                                     "<form class='col s12'>"+
-                                    "<span class='card-title' style='font-size: 30px;'>DETALHES VOLTA</span>"+    
+                                    "<span class='card-title' style='font-size: 30px;'>DETALHES IDA</span>"+    
                                         "<div class='row'>"+
                                             "<div class='input-field col s6'>"+
                                                 "<input disabled placeholder='"+data[0].cidade_partida+"' id='first_name' type='text' class='validate'>"+
@@ -172,7 +172,7 @@ function renderizarConfirmacao(){
         }
       });
       
-      if(localStorage.tipo != null){
+      if(localStorage.tipo == "IDA_VOLTA"){
           
         $.ajax({
         url: link2,
@@ -187,7 +187,7 @@ function renderizarConfirmacao(){
                             "<div class='card-content black-text' style='padding-bottom: 0px;'>"+
                                 "<div class='row'>"+
                                     "<form class='col s12'>"+
-                                    "<span class='card-title' style='font-size: 30px;'>DETALHES IDA</span>"+    
+                                    "<span class='card-title' style='font-size: 30px;'>DETALHES VOLTA</span>"+    
                                         "<div class='row'>"+
                                             "<div class='input-field col s6'>"+
                                                 "<input disabled placeholder='"+data[0].cidade_partida+"' id='first_name' type='text' class='validate'>"+

@@ -47,9 +47,6 @@
                 format: 'dd-mm-yyyy' 
             });
 
-            var date = $('.datepicker').datepicker({ dateFormat: 'dd-mm-yy' }).val();
-            console.log(date);
-
         });
     </script>
     
@@ -58,6 +55,18 @@
       <div class="modal-content">
         <h4>Faça Login</h4>
         <p>Usuário não logado</p>
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">OK</a>
+      </div>
+    </div>
+    
+    <!-- Modal Detalhes Hospedagem -->
+    <div id="modal2" class="modal">
+      <div class="modal-content">
+          <div id="nome_hotel"></div>
+            <div id="detalhe_hotel"></div>
+            <div id="preco_hotel"></div>
       </div>
       <div class="modal-footer">
         <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">OK</a>
