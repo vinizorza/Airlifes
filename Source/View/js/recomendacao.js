@@ -8,7 +8,15 @@ function reservarHospedagem($idHospedagem){
     $.ajax({
         url: req,
         dataType: 'json',
-        async: false  
+        async: false
+        success: function(ins){
+        var link_comprarAcomo = "http://echohotel.azurewebsites.net/api/Acomodacao/InsertAcomodacao?cpf=" + localStorage.clienteCpf + "&idAcomodacao=" + ins;
+      
+        $.ajax({
+            url: link_comprarAcomo,
+            dataType: 'json',
+            async: false,
+      }
     });
     window.location.href='meusPedidos.html';
 }
