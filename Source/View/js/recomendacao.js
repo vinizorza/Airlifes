@@ -30,11 +30,6 @@ function renderizarRecomendacao(){
     var quantidade = localStorage.quantidade;
     var data_ida_convertida = Date.parse(data_ida).toString("yyyy-MM-dd");
     var data_volta_convertida = Date.parse(data_volta).toString("yyyy-MM-dd");
-    
-//    var data_ida_convertida = "2017-12-12";;
-//    var data_ida_convertida = "2017-12-12";
-//    var quantidade = 2;
-//    var destino = "BSB";
 
     var link = "http://echohotel.azurewebsites.net/api/hotel/GetHoteisPorDataLocal?dataInicio="+ data_ida_convertida 
                                                                              + "&dataTermino=" + data_volta_convertida 
